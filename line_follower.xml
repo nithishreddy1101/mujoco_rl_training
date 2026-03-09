@@ -1,0 +1,105 @@
+<mujoco model="LineTracer">
+  <default>
+    <joint limited="true" damping="0.01" armature="0.01" frictionloss="0.01" />
+    <geom condim="4" contype="1" conaffinity="15" friction="0.9 0.2 0.2" solref="0.02 1" />
+    <motor ctrllimited="true" />
+    <equality solref="0.001 2" />
+    <default class="visualgeom">
+      <geom material="visualgeom" condim="1" contype="0" conaffinity="0" />
+    </default>
+  </default>
+  <option timestep="0.001" iterations="50" tolerance="1e-10" />
+  <compiler angle="radian" meshdir="meshes" eulerseq="zyx" autolimits="true" />
+
+  <asset>
+    <texture name="texplane" type="2d" builtin="checker" rgb1=".0 .0 .0" rgb2=".8 .8 .8" width="100" height="100" />
+    <material name="matplane" reflectance="0." texture="texplane" texrepeat="1 1" texuniform="true" />
+    <material name="Body_material" rgba="1.000000 1.000000 1.000000 1.0" />
+    <material name="LeftWheel_material" rgba="0.294118 0.294118 0.294118 1.0" />
+    <material name="RightWheel_material" rgba="0.294118 0.294118 0.294118 1.0" />
+    <material name="default_material" rgba="0.7 0.7 0.7 1" />
+    <mesh name="line_follower_Body_vis_1.stl" file="line_follower_Body_vis_1.stl" />
+    <mesh name="line_follower_Body_vis_2.stl" file="line_follower_Body_vis_2.stl" />
+    <mesh name="line_follower_Body_vis_3.stl" file="line_follower_Body_vis_3.stl" />
+    <mesh name="line_follower_Body_vis_4.stl" file="line_follower_Body_vis_4.stl" />
+    <mesh name="line_follower_Body_vis_5.stl" file="line_follower_Body_vis_5.stl" />
+    <mesh name="line_follower_Body_vis_6.stl" file="line_follower_Body_vis_6.stl" />
+    <mesh name="line_follower_Body_vis_7.stl" file="line_follower_Body_vis_7.stl" />
+    <mesh name="line_follower_Body_vis_8.stl" file="line_follower_Body_vis_8.stl" />
+    <mesh name="line_follower_LeftWheel_vis_1.stl" file="line_follower_LeftWheel_vis_1.stl" />
+    <mesh name="line_follower_LeftWheel_vis_2.stl" file="line_follower_LeftWheel_vis_2.stl" />
+    <mesh name="line_follower_RightWheel_vis_1.stl" file="line_follower_RightWheel_vis_1.stl" />
+    <mesh name="line_follower_RightWheel_vis_2.stl" file="line_follower_RightWheel_vis_2.stl" />
+  </asset>
+
+  <worldbody>
+    <light directional="true" diffuse="0.4 0.4 0.4" specular="0.1 0.1 0.1" pos="0 0 5.0" dir="0 0 -1" castshadow="false" />
+    <light directional="true" diffuse="0.6 0.6 0.6" specular="0.2 0.2 0.2" pos="0 0 4" dir="0 0 -1" />
+    <geom name="ground" type="plane" pos="0 0 0" size="10 10 0.001" quat="1 0 0 0" material="matplane" condim="3" conaffinity="15" />
+    <body name="root" pos="0 0 0.05020000013410966053" quat="1 0 0 0">
+      <freejoint name="root" />
+      <site name="root_site" pos="0 0 0" quat="1 0 0 0" />
+      <body name="robot_base" pos="0 0 0" quat="1 0 0 0">
+        <inertial pos="-0.024510 0.000000 0.022673" quat="0.7071068967259818 0.0 -0.7071066656470943 0.0" mass="0.20369647443295" diaginertia="0.00061051019147821 0.00040889239698183 0.00022408834383268" />
+        <geom name="robot_base_collision_0" pos="-0.012391 -0.000000 0.015385" quat="0.999999999999955 -1.7320513330970195e-07 -1.7320507330968633e-07 -1.7320513330970195e-07" type="box" size="0.0825 0.0518615 0.0017" rgba="0 0 0 0" />
+        <geom name="robot_base_collision_1" pos="-0.004961 -0.000000 0.023948" quat="0.999999999999955 -1.7320513330970195e-07 -1.7320507330968633e-07 -1.7320513330970195e-07" type="box" size="0.02895 0.0311 0.00775" rgba="0 0 0 0" />
+        <geom name="robot_base_collision_2" pos="-0.055138 0.031675 0.026922" quat="0.999999999999955 -1.7320513330970195e-07 -1.7320507330968633e-07 -1.7320513330970195e-07" type="box" size="0.0205 0.02035 0.01105" rgba="0 0 0 0" />
+        <geom name="robot_base_collision_3" pos="-0.055138 -0.031675 0.026922" quat="0.999999999999955 -1.7320513330970195e-07 -1.7320507330968633e-07 -1.7320513330970195e-07" type="box" size="0.0205 0.02035 0.01105" rgba="0 0 0 0" />
+        <geom name="robot_base_collision_4" pos="0.084152 -0.022399 0.023800" quat="0.999999999999955 -1.7320513330970195e-07 -1.7320507330968633e-07 -1.7320513330970195e-07" type="box" size="0.0050445 0.0049985 0.004339" rgba="0 0 0 0" />
+        <geom name="robot_base_collision_5" pos="0.084152 0.000030 0.023800" quat="0.999999999999955 -1.7320513330970195e-07 -1.7320507330968633e-07 -1.7320513330970195e-07" type="box" size="0.0050445 0.0049985 0.004339" rgba="0 0 0 0" />
+        <geom name="robot_base_collision_6" pos="0.084152 0.022459 0.023800" quat="0.999999999999955 -1.7320513330970195e-07 -1.7320507330968633e-07 -1.7320513330970195e-07" type="box" size="0.0050445 0.0049985 0.004339" rgba="0 0 0 0" />
+        <geom name="robot_base_collision_7" pos="0.072592 -0.022500 0.018108" quat="0.999999999999955 -1.7320513330970195e-07 -1.7320507330968633e-07 -1.7320513330970195e-07" type="box" size="0.0225 0.0065 0.0012" rgba="0 0 0 0" />
+        <geom name="robot_base_collision_8" pos="0.072592 -0.000000 0.018108" quat="0.999999999999955 -1.7320513330970195e-07 -1.7320507330968633e-07 -1.7320513330970195e-07" type="box" size="0.0225 0.0065 0.0012" rgba="0 0 0 0" />
+        <geom name="robot_base_collision_9" pos="0.072592 0.022500 0.018108" quat="0.999999999999955 -1.7320513330970195e-07 -1.7320507330968633e-07 -1.7320513330970195e-07" type="box" size="0.0225 0.0065 0.0012" rgba="0 0 0 0" />
+        <geom name="robot_base_collision_10" pos="-0.049991 0.053000 0.028803" quat="0.999999999999955 -1.7320513330970195e-07 -1.7320507330968633e-07 -1.7320513330970195e-07" type="box" size="0.0451 0.001 0.0126" rgba="0 0 0 0" />
+        <geom name="robot_base_collision_11" pos="-0.049991 -0.053000 0.028803" quat="0.999999999999955 -1.7320513330970195e-07 -1.7320507330968633e-07 -1.7320513330970195e-07" type="box" size="0.0451 0.001 0.0126" rgba="0 0 0 0" />
+        <geom name="robot_base_visual_0" pos="0.000009 -0.000000 0.020614" quat="0.7071066656470945 -0.7071068967259395 -2.4494900617280295e-07 -4.002404256650263e-14" material="Body_material" type="mesh" mesh="line_follower_Body_vis_1.stl" />
+        <geom name="robot_base_visual_1" pos="0.000009 -0.000000 0.020614" quat="0.7071066656470945 -0.7071068967259395 -2.4494900617280295e-07 -4.002404256650263e-14" material="Body_material" type="mesh" mesh="line_follower_Body_vis_2.stl" />
+        <geom name="robot_base_visual_2" pos="0.000009 -0.000000 0.020614" quat="0.7071066656470945 -0.7071068967259395 -2.4494900617280295e-07 -4.002404256650263e-14" material="Body_material" type="mesh" mesh="line_follower_Body_vis_3.stl" />
+        <geom name="robot_base_visual_3" pos="0.000009 -0.000000 0.020614" quat="0.7071066656470945 -0.7071068967259395 -2.4494900617280295e-07 -4.002404256650263e-14" material="Body_material" type="mesh" mesh="line_follower_Body_vis_4.stl" />
+        <geom name="robot_base_visual_4" pos="0.000009 -0.000000 0.020614" quat="0.7071066656470945 -0.7071068967259395 -2.4494900617280295e-07 -4.002404256650263e-14" material="Body_material" type="mesh" mesh="line_follower_Body_vis_5.stl" />
+        <geom name="robot_base_visual_5" pos="0.000009 -0.000000 0.020614" quat="0.7071066656470945 -0.7071068967259395 -2.4494900617280295e-07 -4.002404256650263e-14" material="Body_material" type="mesh" mesh="line_follower_Body_vis_6.stl" />
+        <geom name="robot_base_visual_6" pos="0.000009 -0.000000 0.020614" quat="0.7071066656470945 -0.7071068967259395 -2.4494900617280295e-07 -4.002404256650263e-14" material="Body_material" type="mesh" mesh="line_follower_Body_vis_7.stl" />
+        <geom name="robot_base_visual_7" pos="0.000009 -0.000000 0.020614" quat="0.7071066656470945 -0.7071068967259395 -2.4494900617280295e-07 -4.002404256650263e-14" material="Body_material" type="mesh" mesh="line_follower_Body_vis_8.stl" />
+        <body name="DynamicLeftWheel" pos="-0.044216 0.058135 0.027000" quat="2.3107892515697132e-07 -2.3107884964157019e-07 0.7071068967259441 0.7071066656470566">
+          <joint name="DynamicLeftJoint" type="hinge" axis="0 0 1" limited="false"/>
+          <inertial pos="0.000013 -0.000039 0.001372" quat="3.000000781252362e-14 -0.99999999999997 -1.7320510330969674e-07 -1.7320510330969674e-07" mass="0.079999998211861" diaginertia="1.2476241810205e-05 1.2476241810205e-05 2.4108866175207e-05" />
+          <geom name="DynamicLeftWheel_collision_0" pos="0.000013 -0.000039 0.001372" quat="3.000000781252362e-14 -0.99999999999997 -1.7320510330969674e-07 -1.7320510330969674e-07" type="cylinder" size="0.027000000700355 0.0043739997781813" rgba="0 0 0 0" />
+          <body name="LeftWheel" pos="-0.000000 0.000000 -0.000000" quat="3.000000781252362e-14 1.7320510330969674e-07 -1.7320510330969674e-07 0.99999999999997">
+            <geom name="LeftWheel_visual_0" pos="0.000013 -0.000039 -0.000128" quat="-0.630012796811708 -0.32106714683791043 0.6302220143462862 -0.3206555405854742" material="LeftWheel_material" type="mesh" mesh="line_follower_LeftWheel_vis_1.stl" />
+            <geom name="LeftWheel_visual_1" pos="0.000013 -0.000039 -0.000128" quat="-0.630012796811708 -0.32106714683791043 0.6302220143462862 -0.3206555405854742" material="LeftWheel_material" type="mesh" mesh="line_follower_LeftWheel_vis_2.stl" />
+          </body>
+        </body>
+        <body name="DynamicRightWheel" pos="-0.044261 -0.058136 0.027028" quat="2.3107892515697132e-07 -2.3107884964157019e-07 0.7071068967259441 0.7071066656470566">
+          <joint name="DynamicRightJoint" type="hinge" axis="0 0 1" limited="false"/>
+          <inertial pos="0.000058 -0.000013 -0.001372" quat="3.000000781252362e-14 -0.99999999999997 -1.7320510330969674e-07 -1.7320510330969674e-07" mass="0.079999998211861" diaginertia="1.2476241810205e-05 1.2476241810205e-05 2.4108866175207e-05" />
+          <geom name="DynamicRightWheel_collision_0" pos="0.000058 -0.000013 -0.001372" quat="3.000000781252362e-14 -0.99999999999997 -1.7320510330969674e-07 -1.7320510330969674e-07" type="cylinder" size="0.027000000700355 0.0043739997781813" rgba="0 0 0 0" />
+          <body name="RightWheel" pos="0.000000 0.000000 -0.000000" quat="3.000000781252362e-14 1.7320510330969674e-07 -1.7320510330969674e-07 0.99999999999997">
+            <geom name="RightWheel_visual_0" pos="0.000058 -0.000013 0.000128" quat="-0.630012796811708 -0.32106714683791043 0.6302220143462862 -0.3206555405854742" material="RightWheel_material" type="mesh" mesh="line_follower_RightWheel_vis_1.stl" />
+            <geom name="RightWheel_visual_1" pos="0.000058 -0.000013 0.000128" quat="-0.630012796811708 -0.32106714683791043 0.6302220143462862 -0.3206555405854742" material="RightWheel_material" type="mesh" mesh="line_follower_RightWheel_vis_2.stl" />
+          </body>
+        </body>
+        <body name="DynamicSlider" pos="0.038209 0.000002 0.013300" quat="0.999999999999955 -1.7320513330970195e-07 -1.7320507330968633e-07 -1.7320513330970195e-07">
+          <inertial pos="-0.000000 0.000000 -0.007000" quat="0.999999999999955 -1.7320513330970195e-07 -1.7320507330968633e-07 -1.7320513330970195e-07" mass="0.050000000745058" diaginertia="8.4666345296369e-07 8.4666345296369e-07 8.4666345296369e-07" />
+          <geom name="DynamicSlider_collision_0" pos="-0.000000 0.000000 -0.007000" quat="0.999999999999955 -1.7320513330970195e-07 -1.7320507330968633e-07 -1.7320513330970195e-07" type="sphere" size="0.0065000001341105" rgba="0 0 0 0" />
+        </body>
+      </body>
+    </body>
+  </worldbody>
+
+  <actuator>
+    <velocity name="Left_Velocity" joint="DynamicLeftJoint" kv="10" ctrlrange="-40 40" />
+    <velocity name="Right_Velocity" joint="DynamicRightJoint" kv="10" ctrlrange="-40 40"/>
+    <!-- <position name="DynamicLeftJoint_ctrl" joint="DynamicLeftJoint" ctrlrange="-3.14 3.14"/>
+    <position name="LeftJoint_ctrl" joint="LeftJoint" ctrlrange="-3.14 3.14"/>
+    <position name="DynamicRightJoint_ctrl" joint="DynamicRightJoint" ctrlrange="-3.14 3.14"/>
+    <position name="RightJoint_ctrl" joint="RightJoint" ctrlrange="-3.14 3.14"/> -->
+  </actuator>
+
+  <sensor>
+    <framepos name="base_link_pos" objtype="site" objname="root_site" />
+    <framequat name="base_link_quat" objtype="site" objname="root_site" />
+    <framelinvel name="base_link_vel" objtype="site" objname="root_site" />
+    <frameangvel name="base_link_ang_vel" objtype="site" objname="root_site" />
+  </sensor>
+</mujoco>
