@@ -1,0 +1,415 @@
+<mujoco model="ant_robot_body">
+  <default>
+    <joint limited="true" damping="0.01" armature="0.01" frictionloss="0.01" />
+    <geom condim="4" contype="1" conaffinity="15" friction="0.9 0.2 0.2" solref="0.001 2" />
+    <motor ctrllimited="true" />
+    <equality solref="0.001 2" />
+    <default class="visualgeom">
+      <geom material="visualgeom" condim="1" contype="0" conaffinity="0" />
+    </default>
+  </default>
+
+  <compiler angle="radian" meshdir="meshes/ant_robot" eulerseq="zyx" autolimits="true" />
+
+  <asset>
+    <texture name="texplane" type="2d" builtin="checker" rgb1=".0 .0 .0" rgb2=".8 .8 .8" width="100" height="100" />
+    <material name="matplane" reflectance="0." texture="texplane" texrepeat="1 1" texuniform="true" />
+    <material name="bodyTextured_material" rgba="0.964706 0.964706 0.964706 1.0" />
+    <material name="body_material" rgba="0.535294 0.535294 0.535294 1.0" />
+    <material name="link1Leg_material" rgba="0.142118 0.257882 0.142118 1.0" />
+    <material name="link2Leg_material" rgba="0.535294 0.535294 0.535294 1.0" />
+    <material name="link3Leg_material" rgba="0.142118 0.257882 0.142118 1.0" />
+    <material name="linkTexturedPart3Leg_material" rgba="1.000000 1.000000 1.000000 1.0" />
+    <material name="link1Leg_2_material" rgba="0.142118 0.257882 0.142118 1.0" />
+    <material name="link2Leg_2_material" rgba="0.535294 0.535294 0.535294 1.0" />
+    <material name="link3Leg_2_material" rgba="0.142118 0.257882 0.142118 1.0" />
+    <material name="linkTexturedPart3Leg_2_material" rgba="1.000000 1.000000 1.000000 1.0" />
+    <material name="link1Leg_3_material" rgba="0.142118 0.257882 0.142118 1.0" />
+    <material name="link2Leg_3_material" rgba="0.535294 0.535294 0.535294 1.0" />
+    <material name="link3Leg_3_material" rgba="0.142118 0.257882 0.142118 1.0" />
+    <material name="linkTexturedPart3Leg_3_material" rgba="1.000000 1.000000 1.000000 1.0" />
+    <material name="link1Leg_4_material" rgba="0.142118 0.257882 0.142118 1.0" />
+    <material name="link3Leg_4_material" rgba="0.142118 0.257882 0.142118 1.0" />
+    <material name="linkTexturedPart3Leg_4_material" rgba="1.000000 1.000000 1.000000 1.0" />
+    <material name="link1Leg_5_material" rgba="0.142118 0.257882 0.142118 1.0" />
+    <material name="link2Leg_5_material" rgba="0.535294 0.535294 0.535294 1.0" />
+    <material name="link3Leg_5_material" rgba="0.142118 0.257882 0.142118 1.0" />
+    <material name="linkTexturedPart3Leg_5_material" rgba="1.000000 1.000000 1.000000 1.0" />
+    <material name="link1Leg_6_material" rgba="0.142118 0.257882 0.142118 1.0" />
+    <material name="link2Leg_6_material" rgba="0.142118 0.257882 0.142118 1.0" />
+    <material name="link3Leg_6_material" rgba="0.142118 0.257882 0.142118 1.0" />
+    <material name="linkTexturedPart3Leg_6_material" rgba="1.000000 1.000000 1.000000 1.0" />
+    <material name="neck_material" rgba="0.535294 0.535294 0.535294 1.0" />
+    <material name="head_material" rgba="0.142118 0.257882 0.142118 1.0" />
+    <material name="jaw_material" rgba="0.535294 0.535294 0.535294 1.0" />
+    <material name="rightJaw_material" rgba="0.082353 0.082353 0.082353 1.0" />
+    <material name="rightJawTexturedPart_material" rgba="1.000000 1.000000 1.000000 1.0" />
+    <material name="leftJaw_material" rgba="0.082353 0.082353 0.082353 1.0" />
+    <material name="leftJawTexturedPart_material" rgba="1.000000 1.000000 1.000000 1.0" />
+    <material name="default_material" rgba="0.7 0.7 0.7 1" />
+    <mesh name="ant_bodyTextured_vis_1.stl" file="ant_bodyTextured_vis_1.stl" />
+    <mesh name="ant_body_vis_1.stl" file="ant_body_vis_1.stl" />
+    <mesh name="ant_body_vis_2.stl" file="ant_body_vis_2.stl" />
+    <mesh name="ant_link1Leg_vis_1.stl" file="ant_link1Leg_vis_1.stl" />
+    <mesh name="ant_link2Leg_vis_1.stl" file="ant_link2Leg_vis_1.stl" />
+    <mesh name="ant_link2Leg_vis_2.stl" file="ant_link2Leg_vis_2.stl" />
+    <mesh name="ant_link3Leg_vis_1.stl" file="ant_link3Leg_vis_1.stl" />
+    <mesh name="ant_linkTexturedPart3Leg_vis_1.stl" file="ant_linkTexturedPart3Leg_vis_1.stl" />
+    <mesh name="ant_link1Leg_2_vis_1.stl" file="ant_link1Leg_2_vis_1.stl" />
+    <mesh name="ant_link2Leg_2_vis_1.stl" file="ant_link2Leg_2_vis_1.stl" />
+    <mesh name="ant_link2Leg_2_vis_2.stl" file="ant_link2Leg_2_vis_2.stl" />
+    <mesh name="ant_link3Leg_2_vis_1.stl" file="ant_link3Leg_2_vis_1.stl" />
+    <mesh name="ant_linkTexturedPart3Leg_2_vis_1.stl" file="ant_linkTexturedPart3Leg_2_vis_1.stl" />
+    <mesh name="ant_link1Leg_3_vis_1.stl" file="ant_link1Leg_3_vis_1.stl" />
+    <mesh name="ant_link2Leg_3_vis_1.stl" file="ant_link2Leg_3_vis_1.stl" />
+    <mesh name="ant_link2Leg_3_vis_2.stl" file="ant_link2Leg_3_vis_2.stl" />
+    <mesh name="ant_link3Leg_3_vis_1.stl" file="ant_link3Leg_3_vis_1.stl" />
+    <mesh name="ant_linkTexturedPart3Leg_3_vis_1.stl" file="ant_linkTexturedPart3Leg_3_vis_1.stl" />
+    <mesh name="ant_link1Leg_4_vis_1.stl" file="ant_link1Leg_4_vis_1.stl" />
+    <mesh name="ant_link2Leg_4_vis_1.stl" file="ant_link2Leg_4_vis_1.stl" />
+    <mesh name="ant_link2Leg_4_vis_2.stl" file="ant_link2Leg_4_vis_2.stl" />
+    <mesh name="ant_link3Leg_4_vis_1.stl" file="ant_link3Leg_4_vis_1.stl" />
+    <mesh name="ant_linkTexturedPart3Leg_4_vis_1.stl" file="ant_linkTexturedPart3Leg_4_vis_1.stl" />
+    <mesh name="ant_link1Leg_5_vis_1.stl" file="ant_link1Leg_5_vis_1.stl" />
+    <mesh name="ant_link2Leg_5_vis_1.stl" file="ant_link2Leg_5_vis_1.stl" />
+    <mesh name="ant_link2Leg_5_vis_2.stl" file="ant_link2Leg_5_vis_2.stl" />
+    <mesh name="ant_link3Leg_5_vis_1.stl" file="ant_link3Leg_5_vis_1.stl" />
+    <mesh name="ant_linkTexturedPart3Leg_5_vis_1.stl" file="ant_linkTexturedPart3Leg_5_vis_1.stl" />
+    <mesh name="ant_link1Leg_6_vis_1.stl" file="ant_link1Leg_6_vis_1.stl" />
+    <mesh name="ant_link2Leg_6_vis_1.stl" file="ant_link2Leg_6_vis_1.stl" />
+    <mesh name="ant_link2Leg_6_vis_2.stl" file="ant_link2Leg_6_vis_2.stl" />
+    <mesh name="ant_link3Leg_6_vis_1.stl" file="ant_link3Leg_6_vis_1.stl" />
+    <mesh name="ant_linkTexturedPart3Leg_6_vis_1.stl" file="ant_linkTexturedPart3Leg_6_vis_1.stl" />
+    <mesh name="ant_neck_vis_1.stl" file="ant_neck_vis_1.stl" />
+    <mesh name="ant_neck_vis_2.stl" file="ant_neck_vis_2.stl" />
+    <mesh name="ant_head_vis_1.stl" file="ant_head_vis_1.stl" />
+    <mesh name="ant_jaw_vis_1.stl" file="ant_jaw_vis_1.stl" />
+    <mesh name="ant_jaw_vis_2.stl" file="ant_jaw_vis_2.stl" />
+    <mesh name="ant_rightJaw_vis_1.stl" file="ant_rightJaw_vis_1.stl" />
+    <mesh name="ant_rightJaw_vis_2.stl" file="ant_rightJaw_vis_2.stl" />
+    <mesh name="ant_rightJawTexturedPart_vis_1.stl" file="ant_rightJawTexturedPart_vis_1.stl" />
+    <mesh name="ant_leftJaw_vis_1.stl" file="ant_leftJaw_vis_1.stl" />
+    <mesh name="ant_leftJaw_vis_2.stl" file="ant_leftJaw_vis_2.stl" />
+    <mesh name="ant_leftJawTexturedPart_vis_1.stl" file="ant_leftJawTexturedPart_vis_1.stl" />
+  </asset>
+
+  <worldbody>
+    <light directional="true" diffuse="0.4 0.4 0.4" specular="0.1 0.1 0.1" pos="0 0 5.0" dir="0 0 -1" castshadow="false" />
+    <light directional="true" diffuse="0.6 0.6 0.6" specular="0.2 0.2 0.2" pos="0 0 4" dir="0 0 -1" />
+    <geom name="ground" type="plane" pos="0 0 0" size="10 10 0.001" quat="1 0 0 0" material="matplane" condim="3" conaffinity="15" />
+    <body name="root" pos="0 0 0.031369006414980125" quat="1 0 0 0">
+      <freejoint name="root" />
+      <site name="root_site" pos="0 0 0" quat="1 0 0 0" />
+      <body name="robot_base" pos="0 0 0" quat="1 0 0 0">
+        <inertial pos="0.000000 0.000000 0.046800" quat="0.999999999999955 -1.7320513330970195e-07 -1.7320507330968633e-07 -1.7320513330970195e-07" mass="0.5" diaginertia="0.0022800739177674 0.0094274309535225 0.010957344003465" />
+        <geom name="robot_base_collision_0" pos="0.000000 0.000000 0.046800" quat="0.999999999999955 -1.7320513330970195e-07 -1.7320507330968633e-07 -1.7320513330970195e-07" type="box" size="0.1228175 0.056341 0.025" rgba="0 0 0 0" />
+        <geom name="robot_base_visual_0" pos="0.025649 -0.000000 0.063289" quat="-0.707106665647052 0.7071068967259819 -4.002404256650263e-14 2.4494900617280295e-07" material="bodyTextured_material" type="mesh" mesh="ant_bodyTextured_vis_1.stl" />
+        <geom name="robot_base_visual_1" pos="0.016722 -0.000000 0.048790" quat="-0.707106665647052 0.7071068967259819 -4.002404256650263e-14 2.4494900617280295e-07" material="body_material" type="mesh" mesh="ant_body_vis_1.stl" />
+        <geom name="robot_base_visual_2" pos="0.016722 -0.000000 0.048790" quat="-0.707106665647052 0.7071068967259819 -4.002404256650263e-14 2.4494900617280295e-07" material="body_material" type="mesh" mesh="ant_body_vis_2.stl" />
+        <body name="link1RespondableLeg" pos="-0.105981 -0.065481 0.052616" quat="0.999999999999955 -1.7320513330970195e-07 -1.7320507330968633e-07 -1.7320513330970195e-07">
+          <joint name="joint1Leg" type="hinge" range="-1.570796 1.570796" axis="0 0 1" />
+          <inertial pos="0.008250 -0.009000 -0.010575" quat="0.5000001633974483 -0.4999999999999733 -0.4999999999999733 -0.49999983660255165" mass="0.10000000149012" diaginertia="0.00032467001214758 0.00032467001214758 0.00031086051841823" />
+          <geom name="link1RespondableLeg_collision_0" pos="0.008250 -0.009000 -0.010575" quat="0.5000001633974483 -0.4999999999999733 -0.4999999999999733 -0.49999983660255165" type="box" size="0.01725 0.01725 0.018" rgba="0 0 0 0" />
+          <geom name="link1RespondableLeg_visual_0" pos="0.007125 -0.009000 -0.009450" quat="0.707106665647006 -0.7071068967259736 1.0860444208259238e-07 -3.5355337273998475e-07" material="link1Leg_material" type="mesh" mesh="ant_link1Leg_vis_1.stl" />
+          <body name="link2RespondableLeg" pos="-0.005325 -0.018000 -0.018825" quat="0.7071068967259818 0.0 0.7071066656470943 0.0">
+            <joint name="joint2Leg" type="hinge" range="-1.570796 1.570796" axis="0 0 1" />
+            <inertial pos="-0.029710 -0.022557 -0.011925" quat="0.04625174922854765 0.7055912773832987 0.04625279859749469 -0.7055936533131543" mass="0.10000000149012" diaginertia="0.00033342523110201 0.00027021820578771 6.393814813824e-05" />
+            <geom name="link2RespondableLeg_collision_0" pos="-0.019013 -0.020420 -0.011925" quat="0.22442429436991046 0.6705433759111274 0.2244234527822504 -0.670551587097942" type="box" size="0.0015 0.0092605 0.010586" rgba="0 0 0 0" />
+            <geom name="link2RespondableLeg_collision_1" pos="-0.056947 -0.035393 -0.011925" quat="0.046251737016224356 0.705590902786252 0.046252810809721545 -0.7055940279087287" type="box" size="0.0015 0.00886 0.0144605" rgba="0 0 0 0" />
+            <geom name="link2RespondableLeg_collision_2" pos="-0.035254 -0.029795 -0.011925" quat="-0.14086367757675866 -0.6929341633612598 -0.14086108073053966 0.6929342144257319" type="box" size="0.0015 0.00926 0.010586" rgba="0 0 0 0" />
+            <geom name="link2RespondableLeg_collision_3" pos="-0.001888 -0.002565 -0.011925" quat="-0.3127257757296966 0.6341947599163082 0.3127273420964344 0.63419335000791" type="box" size="0.0015 0.00886 0.0121075" rgba="0 0 0 0" />
+            <geom name="link2RespondableLeg_visual_0" pos="-0.030290 -0.020277 -0.013500" quat="0.39284763980303633 0.5879388820972163 -0.39284715141671606 0.5879368320178884" material="link2Leg_material" type="mesh" mesh="ant_link2Leg_vis_1.stl" />
+            <geom name="link2RespondableLeg_visual_1" pos="-0.030290 -0.020277 -0.013500" quat="0.39284763980303633 0.5879388820972163 -0.39284715141671606 0.5879368320178884" material="link2Leg_material" type="mesh" mesh="ant_link2Leg_vis_2.stl" />
+            <body name="link3RespondableLeg" pos="-0.062445 -0.036053 0.000000" quat="-0.999999999999955 1.7320507330968633e-07 1.7320513330970195e-07 -1.7320507330968633e-07">
+              <joint name="joint3Leg" type="hinge" range="-1.570796 1.570796" axis="0 0 1" />
+              <inertial pos="0.011957 -0.025711 0.012489" quat="0.2706111523101181 -0.27058614759025695 0.6532876855794165 -0.6532747820388776" mass="0.10000000149012" diaginertia="0.00074352314633031 0.00077178773464798 0.00013074937612539" />
+              <geom name="link3RespondableLeg_collision_0" pos="0.005834 -0.005833 0.013575" quat="1.7360847381220873e-05 -0.38268474267360564 0.9238789895465124 9.897109377052227e-06" type="box" size="0.0090005 0.01725 0.0172505" rgba="0 0 0 0" />
+              <geom name="link3RespondableLeg_collision_1" pos="0.092836 -0.094363 0.007575" quat="0.7071068967259818 0.0 -0.7071066656470943 0.0" type="sphere" size="0.0032986958976835" rgba="0 0 0 0" />
+              <geom name="link3RespondableLeg_collision_2" pos="0.036252 -0.061335 0.007575" quat="0.6538190568760005 0.2692952217070504 0.653820229545769 -0.2692950646934434" type="box" size="0.0015 0.0071485 0.022807" rgba="0 0 0 0" />
+              <geom name="link3RespondableLeg_collision_3" pos="0.063260 -0.081455 0.007575" quat="0.6762022651014193 0.20676325592802522 0.6762017865352018 -0.20676217390120744" type="box" size="0.0015 0.004407 0.016932" rgba="0 0 0 0" />
+              <geom name="link3RespondableLeg_collision_4" pos="0.084686 -0.092215 0.007575" quat="-0.6858775128710205 0.17196088853118308 0.6858795607034074 0.1719613862549662" type="box" size="0.0015 0.0030255 0.0100345" rgba="0 0 0 0" />
+              <geom name="link3RespondableLeg_collision_5" pos="0.087416 -0.096363 0.008029" quat="0.4275736164316456 -0.4312729742655496 0.5713633092194057 -0.55202209473676" type="box" size="0.0018275 0.0022725 0.00667" rgba="0 0 0 0" />
+              <geom name="link3RespondableLeg_collision_6" pos="-0.014900 -0.007731 0.013873" quat="0.18483648596707256 0.0006213865852801948 0.00014416579507979058 -0.9827690809901781" type="box" size="0.0018455 0.0134315 0.021301" rgba="0 0 0 0" />
+              <geom name="link3RespondableLeg_collision_7" pos="-0.002956 -0.031559 0.012838" quat="0.2753834412189388 0.0017512858696951982 0.00241392434147891 -0.9613298425979978" type="box" size="0.0018285 0.013642 0.0182195" rgba="0 0 0 0" />
+              <geom name="link3RespondableLeg_collision_8" pos="0.013484 -0.052977 0.011759" quat="0.0032407856226220827 -0.35547676716191506 0.9346730867535754 0.003462111379623709" type="box" size="0.0019255 0.0137085 0.014862" rgba="0 0 0 0" />
+              <geom name="link3RespondableLeg_collision_9" pos="0.033433 -0.071185 0.010650" quat="-0.31296868790394305 -0.31910412288705087 0.629714482789573 0.6353603932519171" type="box" size="0.0018195 0.0113655 0.0136785" rgba="0 0 0 0" />
+              <geom name="link3RespondableLeg_collision_10" pos="0.056339 -0.085261 0.009553" quat="0.37692506774345724 -0.36983219581160603 0.6035198614698704 -0.5974239843353667" type="box" size="0.0018195 0.007877 0.013559" rgba="0 0 0 0" />
+              <geom name="link3RespondableLeg_collision_11" pos="0.074295 -0.092800 0.008367" quat="0.4275736164316456 -0.4312729742655496 0.5713633092194057 -0.55202209473676" type="box" size="0.0018275 0.004545 0.00667" rgba="0 0 0 0" />
+              <geom name="link3RespondableLeg_visual_0" pos="0.035561 -0.048040 0.008700" quat="7.638593830105024e-07 -0.38268197106540236 0.923880137799712 3.163995007008498e-07" material="link3Leg_material" type="mesh" mesh="ant_link3Leg_vis_1.stl" />
+              <geom name="link3RespondableLeg_visual_1" pos="0.029826 -0.054643 0.013853" quat="0.9329165423495582 0.001126186610978128 -0.0004777516304267688 -0.3600905836975491" material="linkTexturedPart3Leg_material" type="mesh" mesh="ant_linkTexturedPart3Leg_vis_1.stl" />
+            </body>
+          </body>
+        </body>
+        <body name="link1RespondableLeg_2" pos="0.010884 -0.085773 0.052616" quat="0.999999999999955 -1.7320513330970195e-07 -1.7320507330968633e-07 -1.7320513330970195e-07">
+          <joint name="joint1Leg_2" type="hinge" range="-1.570796 1.570796" axis="0 0 1" />
+          <inertial pos="0.008250 -0.009000 -0.010575" quat="0.5000001633974483 -0.4999999999999733 -0.4999999999999733 -0.49999983660255165" mass="0.10000000149012" diaginertia="0.00032467001214758 0.00032467001214758 0.00031086051841823" />
+          <geom name="link1RespondableLeg_2_collision_0" pos="0.008250 -0.009000 -0.010575" quat="0.5000001633974483 -0.4999999999999733 -0.4999999999999733 -0.49999983660255165" type="box" size="0.01725 0.01725 0.018" rgba="0 0 0 0" />
+          <geom name="link1RespondableLeg_2_visual_0" pos="0.007125 -0.009000 -0.009450" quat="0.707106665647006 -0.7071068967259736 1.0860444208259238e-07 -3.5355337273998475e-07" material="link1Leg_2_material" type="mesh" mesh="ant_link1Leg_2_vis_1.stl" />
+          <body name="link2RespondableLeg_2" pos="-0.005325 -0.018000 -0.018825" quat="0.7071068967259818 0.0 0.7071066656470943 0.0">
+            <joint name="joint2Leg_2" type="hinge" range="-1.570796 1.570796" axis="0 0 1" />
+            <inertial pos="-0.029710 -0.022557 -0.011925" quat="0.04625174922854765 0.7055912773832987 0.04625279859749469 -0.7055936533131543" mass="0.10000000149012" diaginertia="0.00033342523110201 0.00027021820578771 6.393814813824e-05" />
+            <geom name="link2RespondableLeg_2_collision_0" pos="-0.019013 -0.020420 -0.011925" quat="0.22442429436991046 0.6705433759111274 0.2244234527822504 -0.670551587097942" type="box" size="0.0015 0.0092605 0.010586" rgba="0 0 0 0" />
+            <geom name="link2RespondableLeg_2_collision_1" pos="-0.056947 -0.035393 -0.011925" quat="0.046251737016224356 0.705590902786252 0.046252810809721545 -0.7055940279087287" type="box" size="0.0015 0.00886 0.0144605" rgba="0 0 0 0" />
+            <geom name="link2RespondableLeg_2_collision_2" pos="-0.035254 -0.029795 -0.011925" quat="-0.14086367757675866 -0.6929341633612598 -0.14086108073053966 0.6929342144257319" type="box" size="0.0015 0.00926 0.010586" rgba="0 0 0 0" />
+            <geom name="link2RespondableLeg_2_collision_3" pos="-0.001888 -0.002565 -0.011925" quat="-0.3127257757296966 0.6341947599163082 0.3127273420964344 0.63419335000791" type="box" size="0.0015 0.00886 0.0121075" rgba="0 0 0 0" />
+            <geom name="link2RespondableLeg_2_visual_0" pos="-0.030290 -0.020277 -0.013500" quat="0.39284763980303633 0.5879388820972163 -0.39284715141671606 0.5879368320178884" material="link2Leg_2_material" type="mesh" mesh="ant_link2Leg_2_vis_1.stl" />
+            <geom name="link2RespondableLeg_2_visual_1" pos="-0.030290 -0.020277 -0.013500" quat="0.39284763980303633 0.5879388820972163 -0.39284715141671606 0.5879368320178884" material="link2Leg_2_material" type="mesh" mesh="ant_link2Leg_2_vis_2.stl" />
+            <body name="link3RespondableLeg_2" pos="-0.062445 -0.036053 -0.000000" quat="-0.999999999999955 1.7320507330968633e-07 1.7320513330970195e-07 -1.7320507330968633e-07">
+              <joint name="joint3Leg_2" type="hinge" range="-1.570796 1.570796" axis="0 0 1" />
+              <inertial pos="0.011957 -0.025711 0.012489" quat="0.2706111523101181 -0.27058614759025695 0.6532876855794165 -0.6532747820388776" mass="0.10000000149012" diaginertia="0.00074352314633031 0.00077178773464798 0.00013074937612539" />
+              <geom name="link3RespondableLeg_2_collision_0" pos="0.005834 -0.005833 0.013575" quat="1.7360847381220873e-05 -0.38268474267360564 0.9238789895465124 9.897109377052227e-06" type="box" size="0.0090005 0.01725 0.0172505" rgba="0 0 0 0" />
+              <geom name="link3RespondableLeg_2_collision_1" pos="0.092836 -0.094363 0.007575" quat="0.7071068967259818 0.0 -0.7071066656470943 0.0" type="sphere" size="0.0032986958976835" rgba="0 0 0 0" />
+              <geom name="link3RespondableLeg_2_collision_2" pos="0.036252 -0.061335 0.007575" quat="0.6538190568760005 0.2692952217070504 0.653820229545769 -0.2692950646934434" type="box" size="0.0015 0.0071485 0.022807" rgba="0 0 0 0" />
+              <geom name="link3RespondableLeg_2_collision_3" pos="0.063260 -0.081455 0.007575" quat="0.6762022651014193 0.20676325592802522 0.6762017865352018 -0.20676217390120744" type="box" size="0.0015 0.004407 0.016932" rgba="0 0 0 0" />
+              <geom name="link3RespondableLeg_2_collision_4" pos="0.084686 -0.092215 0.007575" quat="-0.6858775128710205 0.17196088853118308 0.6858795607034074 0.1719613862549662" type="box" size="0.0015 0.0030255 0.0100345" rgba="0 0 0 0" />
+              <geom name="link3RespondableLeg_2_collision_5" pos="0.087416 -0.096363 0.008029" quat="0.4275736164316456 -0.4312729742655496 0.5713633092194057 -0.55202209473676" type="box" size="0.0018275 0.0022725 0.00667" rgba="0 0 0 0" />
+              <geom name="link3RespondableLeg_2_collision_6" pos="-0.014900 -0.007731 0.013873" quat="0.18483648596707256 0.0006213865852801948 0.00014416579507979058 -0.9827690809901781" type="box" size="0.0018455 0.0134315 0.021301" rgba="0 0 0 0" />
+              <geom name="link3RespondableLeg_2_collision_7" pos="-0.002956 -0.031559 0.012838" quat="0.2753834412189388 0.0017512858696951982 0.00241392434147891 -0.9613298425979978" type="box" size="0.0018285 0.013642 0.0182195" rgba="0 0 0 0" />
+              <geom name="link3RespondableLeg_2_collision_8" pos="0.013484 -0.052977 0.011759" quat="0.0032407856226220827 -0.35547676716191506 0.9346730867535754 0.003462111379623709" type="box" size="0.0019255 0.0137085 0.014862" rgba="0 0 0 0" />
+              <geom name="link3RespondableLeg_2_collision_9" pos="0.033433 -0.071185 0.010650" quat="-0.31296868790394305 -0.31910412288705087 0.629714482789573 0.6353603932519171" type="box" size="0.0018195 0.0113655 0.0136785" rgba="0 0 0 0" />
+              <geom name="link3RespondableLeg_2_collision_10" pos="0.056339 -0.085261 0.009553" quat="0.37692506774345724 -0.36983219581160603 0.6035198614698704 -0.5974239843353667" type="box" size="0.0018195 0.007877 0.013559" rgba="0 0 0 0" />
+              <geom name="link3RespondableLeg_2_collision_11" pos="0.074295 -0.092800 0.008367" quat="0.4275736164316456 -0.4312729742655496 0.5713633092194057 -0.55202209473676" type="box" size="0.0018275 0.004545 0.00667" rgba="0 0 0 0" />
+              <geom name="link3RespondableLeg_2_visual_0" pos="0.035561 -0.048040 0.008700" quat="7.638593830105024e-07 -0.38268197106540236 0.923880137799712 3.163995007008498e-07" material="link3Leg_2_material" type="mesh" mesh="ant_link3Leg_2_vis_1.stl" />
+              <geom name="link3RespondableLeg_2_visual_1" pos="0.029826 -0.054642 0.013853" quat="0.9329165423495582 0.001126186610978128 -0.0004777516304267688 -0.3600905836975491" material="linkTexturedPart3Leg_2_material" type="mesh" mesh="ant_linkTexturedPart3Leg_2_vis_1.stl" />
+            </body>
+          </body>
+        </body>
+        <body name="link1RespondableLeg_3" pos="0.126175 -0.068180 0.052616" quat="0.999999999999955 -1.7320513330970195e-07 -1.7320507330968633e-07 -1.7320513330970195e-07">
+          <joint name="joint1Leg_3" type="hinge" range="-1.570796 1.570796" axis="0 0 1" />
+          <inertial pos="0.008250 -0.009000 -0.010575" quat="0.5000001633974483 -0.4999999999999733 -0.4999999999999733 -0.49999983660255165" mass="0.10000000149012" diaginertia="0.00032467001214758 0.00032467001214758 0.00031086051841823" />
+          <geom name="link1RespondableLeg_3_collision_0" pos="0.008250 -0.009000 -0.010575" quat="0.5000001633974483 -0.4999999999999733 -0.4999999999999733 -0.49999983660255165" type="box" size="0.01725 0.01725 0.018" rgba="0 0 0 0" />
+          <geom name="link1RespondableLeg_3_visual_0" pos="0.007125 -0.009000 -0.009450" quat="0.707106665647006 -0.7071068967259736 1.0860444208259238e-07 -3.5355337273998475e-07" material="link1Leg_3_material" type="mesh" mesh="ant_link1Leg_3_vis_1.stl" />
+          <body name="link2RespondableLeg_3" pos="-0.005325 -0.018000 -0.018825" quat="0.7071068967259818 0.0 0.7071066656470943 0.0">
+            <joint name="joint2Leg_3" type="hinge" range="-1.570796 1.570796" axis="0 0 1" />
+            <inertial pos="-0.029710 -0.022557 -0.011925" quat="0.04625174922854765 0.7055912773832987 0.04625279859749469 -0.7055936533131543" mass="0.10000000149012" diaginertia="0.00033342523110201 0.00027021820578771 6.393814813824e-05" />
+            <geom name="link2RespondableLeg_3_collision_0" pos="-0.019013 -0.020420 -0.011925" quat="0.22442429436991046 0.6705433759111274 0.2244234527822504 -0.670551587097942" type="box" size="0.0015 0.0092605 0.010586" rgba="0 0 0 0" />
+            <geom name="link2RespondableLeg_3_collision_1" pos="-0.056947 -0.035393 -0.011925" quat="0.046251737016224356 0.705590902786252 0.046252810809721545 -0.7055940279087287" type="box" size="0.0015 0.00886 0.0144605" rgba="0 0 0 0" />
+            <geom name="link2RespondableLeg_3_collision_2" pos="-0.035254 -0.029795 -0.011925" quat="-0.14086367757675866 -0.6929341633612598 -0.14086108073053966 0.6929342144257319" type="box" size="0.0015 0.00926 0.010586" rgba="0 0 0 0" />
+            <geom name="link2RespondableLeg_3_collision_3" pos="-0.001888 -0.002565 -0.011925" quat="-0.3127257757296966 0.6341947599163082 0.3127273420964344 0.63419335000791" type="box" size="0.0015 0.00886 0.0121075" rgba="0 0 0 0" />
+            <geom name="link2RespondableLeg_3_visual_0" pos="-0.030290 -0.020277 -0.013500" quat="0.39284763980303633 0.5879388820972163 -0.39284715141671606 0.5879368320178884" material="link2Leg_3_material" type="mesh" mesh="ant_link2Leg_3_vis_1.stl" />
+            <geom name="link2RespondableLeg_3_visual_1" pos="-0.030290 -0.020277 -0.013500" quat="0.39284763980303633 0.5879388820972163 -0.39284715141671606 0.5879368320178884" material="link2Leg_3_material" type="mesh" mesh="ant_link2Leg_3_vis_2.stl" />
+            <body name="link3RespondableLeg_3" pos="-0.062445 -0.036053 -0.000000" quat="-0.999999999999955 1.7320507330968633e-07 1.7320513330970195e-07 -1.7320507330968633e-07">
+              <joint name="joint3Leg_3" type="hinge" range="-1.570796 1.570796" axis="0 0 1" />
+              <inertial pos="0.011957 -0.025711 0.012489" quat="0.2706111523101181 -0.27058614759025695 0.6532876855794165 -0.6532747820388776" mass="0.10000000149012" diaginertia="0.00074352314633031 0.00077178773464798 0.00013074937612539" />
+              <geom name="link3RespondableLeg_3_collision_0" pos="0.005834 -0.005833 0.013575" quat="1.7360847381220873e-05 -0.38268474267360564 0.9238789895465124 9.897109377052227e-06" type="box" size="0.0090005 0.01725 0.0172505" rgba="0 0 0 0" />
+              <geom name="link3RespondableLeg_3_collision_1" pos="0.092836 -0.094363 0.007575" quat="0.7071068967259818 0.0 -0.7071066656470943 0.0" type="sphere" size="0.0032986958976835" rgba="0 0 0 0" />
+              <geom name="link3RespondableLeg_3_collision_2" pos="0.036252 -0.061335 0.007575" quat="0.6538190568760005 0.2692952217070504 0.653820229545769 -0.2692950646934434" type="box" size="0.0015 0.0071485 0.022807" rgba="0 0 0 0" />
+              <geom name="link3RespondableLeg_3_collision_3" pos="0.063260 -0.081455 0.007575" quat="0.6762022651014193 0.20676325592802522 0.6762017865352018 -0.20676217390120744" type="box" size="0.0015 0.004407 0.016932" rgba="0 0 0 0" />
+              <geom name="link3RespondableLeg_3_collision_4" pos="0.084686 -0.092215 0.007575" quat="-0.6858775128710205 0.17196088853118308 0.6858795607034074 0.1719613862549662" type="box" size="0.0015 0.0030255 0.0100345" rgba="0 0 0 0" />
+              <geom name="link3RespondableLeg_3_collision_5" pos="0.087416 -0.096363 0.008029" quat="0.4275736164316456 -0.4312729742655496 0.5713633092194057 -0.55202209473676" type="box" size="0.0018275 0.0022725 0.00667" rgba="0 0 0 0" />
+              <geom name="link3RespondableLeg_3_collision_6" pos="-0.014900 -0.007731 0.013873" quat="0.18483648596707256 0.0006213865852801948 0.00014416579507979058 -0.9827690809901781" type="box" size="0.0018455 0.0134315 0.021301" rgba="0 0 0 0" />
+              <geom name="link3RespondableLeg_3_collision_7" pos="-0.002956 -0.031559 0.012838" quat="0.2753834412189388 0.0017512858696951982 0.00241392434147891 -0.9613298425979978" type="box" size="0.0018285 0.013642 0.0182195" rgba="0 0 0 0" />
+              <geom name="link3RespondableLeg_3_collision_8" pos="0.013484 -0.052977 0.011759" quat="0.0032407856226220827 -0.35547676716191506 0.9346730867535754 0.003462111379623709" type="box" size="0.0019255 0.0137085 0.014862" rgba="0 0 0 0" />
+              <geom name="link3RespondableLeg_3_collision_9" pos="0.033433 -0.071185 0.010650" quat="-0.31296868790394305 -0.31910412288705087 0.629714482789573 0.6353603932519171" type="box" size="0.0018195 0.0113655 0.0136785" rgba="0 0 0 0" />
+              <geom name="link3RespondableLeg_3_collision_10" pos="0.056339 -0.085261 0.009553" quat="0.37692506774345724 -0.36983219581160603 0.6035198614698704 -0.5974239843353667" type="box" size="0.0018195 0.007877 0.013559" rgba="0 0 0 0" />
+              <geom name="link3RespondableLeg_3_collision_11" pos="0.074295 -0.092800 0.008367" quat="0.4275736164316456 -0.4312729742655496 0.5713633092194057 -0.55202209473676" type="box" size="0.0018275 0.004545 0.00667" rgba="0 0 0 0" />
+              <geom name="link3RespondableLeg_3_visual_0" pos="0.035561 -0.048040 0.008700" quat="7.638593830105024e-07 -0.38268197106540236 0.923880137799712 3.163995007008498e-07" material="link3Leg_3_material" type="mesh" mesh="ant_link3Leg_3_vis_1.stl" />
+              <geom name="link3RespondableLeg_3_visual_1" pos="0.029826 -0.054643 0.013853" quat="0.9329165423495582 0.001126186610978128 -0.0004777516304267688 -0.3600905836975491" material="linkTexturedPart3Leg_3_material" type="mesh" mesh="ant_linkTexturedPart3Leg_3_vis_1.stl" />
+            </body>
+          </body>
+        </body>
+        <body name="link1RespondableLeg_4" pos="0.126175 0.068180 0.052616" quat="0.999999999999955 -1.7320513330970195e-07 -1.7320507330968633e-07 -1.7320513330970195e-07">
+          <joint name="joint1Leg_4" type="hinge" range="-1.570796 1.570796" axis="0 0 1" />
+          <inertial pos="0.008250 0.009000 -0.010575" quat="0.5000001633974483 -0.4999999999999733 -0.4999999999999733 -0.49999983660255165" mass="0.10000000149012" diaginertia="0.00032467001214758 0.00032467001214758 0.00031086051841823" />
+          <geom name="link1RespondableLeg_4_collision_0" pos="0.008250 0.009000 -0.010575" quat="0.5000001633974483 -0.4999999999999733 -0.4999999999999733 -0.49999983660255165" type="box" size="0.01725 0.01725 0.018" rgba="0 0 0 0" />
+          <geom name="link1RespondableLeg_4_visual_0" pos="0.007125 0.008980 -0.009450" quat="-0.707106665647052 0.7071068967259819 -4.002404256650263e-14 2.4494900617280295e-07" material="link1Leg_4_material" type="mesh" mesh="ant_link1Leg_4_vis_1.stl" />
+          <body name="link2RespondableLeg_4" pos="-0.005325 0.018000 -0.018825" quat="0.7071068967259818 0.0 0.7071066656470943 0.0">
+            <joint name="joint2Leg_4" type="hinge" range="-1.570796 1.570796" axis="0 0 1" />
+            <inertial pos="-0.029710 0.022538 -0.011925" quat="-0.705591182720327 0.04625149899750036 0.7055937782056502 0.046252587660476255" mass="0.10000000149012" diaginertia="0.00033342523110201 0.00027021820578771 6.393814813824e-05" />
+            <geom name="link2RespondableLeg_4_collision_0" pos="-0.019013 0.020401 -0.011925" quat="-0.670543695761348 0.22442407701881878 0.6705514139314344 0.22442323187120894" type="box" size="0.0015 0.0092605 0.010586" rgba="0 0 0 0" />
+            <geom name="link2RespondableLeg_4_collision_1" pos="-0.056947 0.035374 -0.011925" quat="-0.7055908058005254 0.04625149923589468 0.7055941551238712 0.046252587421978325" type="box" size="0.0015 0.00886 0.0144605" rgba="0 0 0 0" />
+            <geom name="link2RespondableLeg_4_collision_2" pos="-0.035254 0.029776 -0.011925" quat="-0.6929341119365291 0.14086401253966002 0.6929341737837681 0.14086119866225372" type="box" size="0.0015 0.00926 0.010586" rgba="0 0 0 0" />
+            <geom name="link2RespondableLeg_4_collision_3" pos="-0.001888 0.002546 -0.011925" quat="0.6341946265237803 0.3127259604379178 0.6341933750690223 -0.3127273770796335" type="box" size="0.0015 0.00886 0.0121075" rgba="0 0 0 0" />
+            <geom name="link2RespondableLeg_4_visual_0" pos="-0.030290 0.020258 -0.013500" quat="0.39284886411424136 -0.5879344104199967 -0.39284497794915874 -0.5879419378717309" material="link1Leg_4_material" type="mesh" mesh="ant_link2Leg_4_vis_1.stl" />
+            <geom name="link2RespondableLeg_4_visual_1" pos="-0.030290 0.020258 -0.013500" quat="0.39284886411424136 -0.5879344104199967 -0.39284497794915874 -0.5879419378717309" material="link1Leg_4_material" type="mesh" mesh="ant_link2Leg_4_vis_2.stl" />
+            <body name="link3RespondableLeg_4" pos="-0.062445 0.036000 -0.000000" quat="0.999999999999955 -1.7320513330970195e-07 -1.7320507330968633e-07 -1.7320513330970195e-07">
+              <joint name="joint3Leg_4" type="hinge" range="-1.570796 1.570796" axis="0 0 1" />
+              <inertial pos="0.012346 0.026715 0.012683" quat="0.284537531696468 0.6402580196717013 0.2944015619882068 -0.6499505993543332" mass="0.1011593863368" diaginertia="0.00078497914216915 0.00076570937949614 0.00012109677875492" />
+              <geom name="link3RespondableLeg_4_collision_0" pos="0.005834 0.005867 0.014131" quat="-0.38268474267142355 -1.7285231948668217e-05 9.678312350649097e-06 -0.923878989551152" type="box" size="0.0090005 0.01725 0.0172505" rgba="0 0 0 0" />
+              <geom name="link3RespondableLeg_4_collision_1" pos="-0.014900 0.007763 0.013873" quat="0.0006213544984894526 0.18483697745921446 0.9827689885468274 -0.0001443363263772589" type="box" size="0.0018455 0.0134315 0.021301" rgba="0 0 0 0" />
+              <geom name="link3RespondableLeg_4_collision_2" pos="-0.002956 0.031592 0.012838" quat="0.0017512369648321024 0.2753839221871531 0.9613297044880383 -0.0024140917243325" type="box" size="0.0018285 0.013642 0.0182195" rgba="0 0 0 0" />
+              <geom name="link3RespondableLeg_4_collision_3" pos="0.013302 0.052467 0.010652" quat="-0.23982052944952625 0.24450135991768462 0.6634902021822143 -0.6651961742682803" type="box" size="0.0021355 0.0146725 0.0157005" rgba="0 0 0 0" />
+              <geom name="link3RespondableLeg_4_collision_4" pos="0.033434 0.071218 0.010652" quat="0.3190342077434006 0.3128446982079884 0.6353811875375509 0.6297905331267413" type="box" size="0.0018205 0.0113655 0.0136785" rgba="0 0 0 0" />
+              <geom name="link3RespondableLeg_4_collision_5" pos="0.056084 0.084772 0.010652" quat="-0.3560335252458266 0.3639834572167047 0.6062311491964789 -0.6109336834039528" type="box" size="0.0021255 0.007802 0.0144425" rgba="0 0 0 0" />
+              <geom name="link3RespondableLeg_4_collision_6" pos="0.092836 0.094397 0.007775" quat="-1.2247452309842457e-07 -0.7071068967259713 -1.22474483074382e-07 0.7071066656470838" type="sphere" size="0.0032986958976835" rgba="0 0 0 0" />
+              <geom name="link3RespondableLeg_4_collision_7" pos="0.036252 0.061369 0.007575" quat="-0.26929512460004174 0.6538189961085797 0.2692949353105706 0.6538203835995731" type="box" size="0.0015 0.0071485 0.022807" rgba="0 0 0 0" />
+              <geom name="link3RespondableLeg_4_collision_8" pos="0.063260 0.081489 0.007575" quat="0.2067631293808028 -0.6762023874098534 -0.20676185848960765 -0.676201799364506" type="box" size="0.0015 0.004407 0.016932" rgba="0 0 0 0" />
+              <geom name="link3RespondableLeg_4_collision_9" pos="0.084686 0.092249 0.007575" quat="0.1719611578515054 0.6858775576794214 0.1719615652179113 -0.6858794035031871" type="box" size="0.0015 0.0030255 0.0100345" rgba="0 0 0 0" />
+              <geom name="link3RespondableLeg_4_collision_10" pos="0.087416 0.096397 0.007775" quat="0.4312729201533052 0.42757367042508926 0.5520223487556888 0.5713630642384148" type="box" size="0.0018275 0.0022725 0.00667" rgba="0 0 0 0" />
+              <geom name="link3RespondableLeg_4_collision_11" pos="0.074295 0.092834 0.008475" quat="0.4312732058347834 0.42757394643621016 0.5520221349687845 0.5713628486018832" type="box" size="0.0018275 0.004545 0.00667" rgba="0 0 0 0" />
+              <geom name="link3RespondableLeg_4_visual_0" pos="0.035561 0.048074 0.008700" quat="-2.469721099328265e-06 0.38268197106416585 0.9238801377967268 1.0229873980445338e-06" material="link3Leg_4_material" type="mesh" mesh="ant_link3Leg_4_vis_1.stl" />
+              <geom name="link3RespondableLeg_4_visual_1" pos="0.029810 0.054686 0.013955" quat="-0.0007613326932547561 0.9329839810556213 0.3599170532464035 0.00016201407252065223" material="linkTexturedPart3Leg_4_material" type="mesh" mesh="ant_linkTexturedPart3Leg_4_vis_1.stl" />
+            </body>
+          </body>
+        </body>
+        <body name="link1RespondableLeg_5" pos="0.010884 0.085753 0.052616" quat="0.999999999999955 -1.7320513330970195e-07 -1.7320507330968633e-07 -1.7320513330970195e-07">
+          <joint name="joint1Leg_5" type="hinge" range="-1.570796 1.570796" axis="0 0 1" />
+          <inertial pos="0.008250 0.009000 -0.010575" quat="0.5000001633974483 -0.4999999999999733 -0.4999999999999733 -0.49999983660255165" mass="0.10000000149012" diaginertia="0.00032467001214758 0.00032467001214758 0.00031086051841823" />
+          <geom name="link1RespondableLeg_5_collision_0" pos="0.008250 0.009000 -0.010575" quat="0.5000001633974483 -0.4999999999999733 -0.4999999999999733 -0.49999983660255165" type="box" size="0.01725 0.01725 0.018" rgba="0 0 0 0" />
+          <geom name="link1RespondableLeg_5_visual_0" pos="0.007125 0.008980 -0.009450" quat="-0.707106665647052 0.7071068967259819 -4.002404256650263e-14 2.4494900617280295e-07" material="link1Leg_5_material" type="mesh" mesh="ant_link1Leg_5_vis_1.stl" />
+          <body name="link2RespondableLeg_5" pos="-0.005325 0.018000 -0.018825" quat="0.7071068967259818 0.0 0.7071066656470943 0.0">
+            <joint name="joint2Leg_5" type="hinge" range="-1.570796 1.570796" axis="0 0 1" />
+            <inertial pos="-0.029710 0.022538 -0.011925" quat="-0.705591182720327 0.04625149899750036 0.7055937782056502 0.046252587660476255" mass="0.10000000149012" diaginertia="0.00033342523110201 0.00027021820578771 6.393814813824e-05" />
+            <geom name="link2RespondableLeg_5_collision_0" pos="-0.019013 0.020401 -0.011925" quat="-0.670543695761348 0.22442407701881878 0.6705514139314344 0.22442323187120894" type="box" size="0.0015 0.0092605 0.010586" rgba="0 0 0 0" />
+            <geom name="link2RespondableLeg_5_collision_1" pos="-0.056947 0.035374 -0.011925" quat="-0.7055908058005254 0.04625149923589468 0.7055941551238712 0.046252587421978325" type="box" size="0.0015 0.00886 0.0144605" rgba="0 0 0 0" />
+            <geom name="link2RespondableLeg_5_collision_2" pos="-0.035254 0.029776 -0.011925" quat="-0.6929341119365291 0.14086401253966002 0.6929341737837681 0.14086119866225372" type="box" size="0.0015 0.00926 0.010586" rgba="0 0 0 0" />
+            <geom name="link2RespondableLeg_5_collision_3" pos="-0.001888 0.002546 -0.011925" quat="0.6341946265237803 0.3127259604379178 0.6341933750690223 -0.3127273770796335" type="box" size="0.0015 0.00886 0.0121075" rgba="0 0 0 0" />
+            <geom name="link2RespondableLeg_5_visual_0" pos="-0.030290 0.020258 -0.013500" quat="0.39284886411424136 -0.5879344104199967 -0.39284497794915874 -0.5879419378717309" material="link2Leg_5_material" type="mesh" mesh="ant_link2Leg_5_vis_1.stl" />
+            <geom name="link2RespondableLeg_5_visual_1" pos="-0.030290 0.020258 -0.013500" quat="0.39284886411424136 -0.5879344104199967 -0.39284497794915874 -0.5879419378717309" material="link2Leg_5_material" type="mesh" mesh="ant_link2Leg_5_vis_2.stl" />
+            <body name="link3RespondableLeg_5" pos="-0.062445 0.036000 -0.000000" quat="0.999999999999955 -1.7320513330970195e-07 -1.7320507330968633e-07 -1.7320513330970195e-07">
+              <joint name="joint3Leg_5" type="hinge" range="-1.570796 1.570796" axis="0 0 1" />
+              <inertial pos="0.012346 0.026715 0.012683" quat="0.284537531696468 0.6402580196717013 0.2944015619882068 -0.6499505993543332" mass="0.1011593863368" diaginertia="0.00078497914216915 0.00076570937949614 0.00012109677875492" />
+              <geom name="link3RespondableLeg_5_collision_0" pos="0.005834 0.005867 0.014131" quat="-0.38268474267142355 -1.7285231948668217e-05 9.678312350649097e-06 -0.923878989551152" type="box" size="0.0090005 0.01725 0.0172505" rgba="0 0 0 0" />
+              <geom name="link3RespondableLeg_5_collision_1" pos="-0.014900 0.007763 0.013873" quat="0.0006213544984894526 0.18483697745921446 0.9827689885468274 -0.0001443363263772589" type="box" size="0.0018455 0.0134315 0.021301" rgba="0 0 0 0" />
+              <geom name="link3RespondableLeg_5_collision_2" pos="-0.002956 0.031592 0.012838" quat="0.0017512369648321024 0.2753839221871531 0.9613297044880383 -0.0024140917243325" type="box" size="0.0018285 0.013642 0.0182195" rgba="0 0 0 0" />
+              <geom name="link3RespondableLeg_5_collision_3" pos="0.013302 0.052467 0.010652" quat="-0.23982052944952625 0.24450135991768462 0.6634902021822143 -0.6651961742682803" type="box" size="0.0021355 0.0146725 0.0157005" rgba="0 0 0 0" />
+              <geom name="link3RespondableLeg_5_collision_4" pos="0.033434 0.071218 0.010652" quat="0.3190342077434006 0.3128446982079884 0.6353811875375509 0.6297905331267413" type="box" size="0.0018205 0.0113655 0.0136785" rgba="0 0 0 0" />
+              <geom name="link3RespondableLeg_5_collision_5" pos="0.056084 0.084772 0.010652" quat="-0.3560335252458266 0.3639834572167047 0.6062311491964789 -0.6109336834039528" type="box" size="0.0021255 0.007802 0.0144425" rgba="0 0 0 0" />
+              <geom name="link3RespondableLeg_5_collision_6" pos="0.092836 0.094397 0.007775" quat="-1.2247452309842457e-07 -0.7071068967259713 -1.22474483074382e-07 0.7071066656470838" type="sphere" size="0.0032986958976835" rgba="0 0 0 0" />
+              <geom name="link3RespondableLeg_5_collision_7" pos="0.036252 0.061369 0.007575" quat="-0.26929512460004174 0.6538189961085797 0.2692949353105706 0.6538203835995731" type="box" size="0.0015 0.0071485 0.022807" rgba="0 0 0 0" />
+              <geom name="link3RespondableLeg_5_collision_8" pos="0.063260 0.081489 0.007575" quat="0.2067631293808028 -0.6762023874098534 -0.20676185848960765 -0.676201799364506" type="box" size="0.0015 0.004407 0.016932" rgba="0 0 0 0" />
+              <geom name="link3RespondableLeg_5_collision_9" pos="0.084686 0.092249 0.007575" quat="0.1719611578515054 0.6858775576794214 0.1719615652179113 -0.6858794035031871" type="box" size="0.0015 0.0030255 0.0100345" rgba="0 0 0 0" />
+              <geom name="link3RespondableLeg_5_collision_10" pos="0.087416 0.096397 0.007775" quat="0.4312729201533052 0.42757367042508926 0.5520223487556888 0.5713630642384148" type="box" size="0.0018275 0.0022725 0.00667" rgba="0 0 0 0" />
+              <geom name="link3RespondableLeg_5_collision_11" pos="0.074295 0.092834 0.008475" quat="0.4312732058347834 0.42757394643621016 0.5520221349687845 0.5713628486018832" type="box" size="0.0018275 0.004545 0.00667" rgba="0 0 0 0" />
+              <geom name="link3RespondableLeg_5_visual_0" pos="0.035561 0.048074 0.008700" quat="-2.469721099328265e-06 0.38268197106416585 0.9238801377967268 1.0229873980445338e-06" material="link3Leg_5_material" type="mesh" mesh="ant_link3Leg_5_vis_1.stl" />
+              <geom name="link3RespondableLeg_5_visual_1" pos="0.029809 0.054686 0.013955" quat="-0.0007613326932547561 0.9329839810556213 0.3599170532464035 0.00016201407252065223" material="linkTexturedPart3Leg_5_material" type="mesh" mesh="ant_linkTexturedPart3Leg_5_vis_1.stl" />
+            </body>
+          </body>
+        </body>
+        <body name="link1RespondableLeg_6" pos="-0.105981 0.065480 0.052616" quat="0.999999999999955 -1.7320513330970195e-07 -1.7320507330968633e-07 -1.7320513330970195e-07">
+          <joint name="joint1Leg_6" type="hinge" range="-1.570796 1.570796" axis="0 0 1" />
+          <inertial pos="0.008250 0.009000 -0.010575" quat="0.5000001633974483 -0.4999999999999733 -0.4999999999999733 -0.49999983660255165" mass="0.10000000149012" diaginertia="0.00032467001214758 0.00032467001214758 0.00031086051841823" />
+          <geom name="link1RespondableLeg_6_collision_0" pos="0.008250 0.009000 -0.010575" quat="0.5000001633974483 -0.4999999999999733 -0.4999999999999733 -0.49999983660255165" type="box" size="0.01725 0.01725 0.018" rgba="0 0 0 0" />
+          <geom name="link1RespondableLeg_6_visual_0" pos="0.007125 0.008980 -0.009450" quat="-0.707106665647052 0.7071068967259819 -4.002404256650263e-14 2.4494900617280295e-07" material="link1Leg_6_material" type="mesh" mesh="ant_link1Leg_6_vis_1.stl" />
+          <body name="link2RespondableLeg_6" pos="-0.005325 0.018000 -0.018825" quat="0.7071068967259818 0.0 0.7071066656470943 0.0">
+            <joint name="joint2Leg_6" type="hinge" range="-1.570796 1.570796" axis="0 0 1" />
+            <inertial pos="-0.029710 0.022538 -0.011925" quat="-0.705591182720327 0.04625149899750036 0.7055937782056502 0.046252587660476255" mass="0.10000000149012" diaginertia="0.00033342523110201 0.00027021820578771 6.393814813824e-05" />
+            <geom name="link2RespondableLeg_6_collision_0" pos="-0.019013 0.020401 -0.011925" quat="-0.670543695761348 0.22442407701881878 0.6705514139314344 0.22442323187120894" type="box" size="0.0015 0.0092605 0.010586" rgba="0 0 0 0" />
+            <geom name="link2RespondableLeg_6_collision_1" pos="-0.056947 0.035374 -0.011925" quat="-0.7055908058005254 0.04625149923589468 0.7055941551238712 0.046252587421978325" type="box" size="0.0015 0.00886 0.0144605" rgba="0 0 0 0" />
+            <geom name="link2RespondableLeg_6_collision_2" pos="-0.035254 0.029776 -0.011925" quat="-0.6929341119365291 0.14086401253966002 0.6929341737837681 0.14086119866225372" type="box" size="0.0015 0.00926 0.010586" rgba="0 0 0 0" />
+            <geom name="link2RespondableLeg_6_collision_3" pos="-0.001888 0.002546 -0.011925" quat="0.6341946265237803 0.3127259604379178 0.6341933750690223 -0.3127273770796335" type="box" size="0.0015 0.00886 0.0121075" rgba="0 0 0 0" />
+            <geom name="link2RespondableLeg_6_visual_0" pos="-0.030290 0.020258 -0.013500" quat="0.39284886411424136 -0.5879344104199967 -0.39284497794915874 -0.5879419378717309" material="link2Leg_6_material" type="mesh" mesh="ant_link2Leg_6_vis_1.stl" />
+            <geom name="link2RespondableLeg_6_visual_1" pos="-0.030290 0.020258 -0.013500" quat="0.39284886411424136 -0.5879344104199967 -0.39284497794915874 -0.5879419378717309" material="default_material" type="mesh" mesh="ant_link2Leg_6_vis_2.stl" />
+            <body name="link3RespondableLeg_6" pos="-0.062445 0.036000 -0.000000" quat="0.999999999999955 -1.7320513330970195e-07 -1.7320507330968633e-07 -1.7320513330970195e-07">
+              <joint name="joint3Leg_6" type="hinge" range="-1.570796 1.570796" axis="0 0 1" />
+              <inertial pos="0.012346 0.026715 0.012683" quat="0.284537531696468 0.6402580196717013 0.2944015619882068 -0.6499505993543332" mass="0.1011593863368" diaginertia="0.00078497914216915 0.00076570937949614 0.00012109677875492" />
+              <geom name="link3RespondableLeg_6_collision_0" pos="0.005834 0.005867 0.014131" quat="-0.38268474267142355 -1.7285231948668217e-05 9.678312350649097e-06 -0.923878989551152" type="box" size="0.0090005 0.01725 0.0172505" rgba="0 0 0 0" />
+              <geom name="link3RespondableLeg_6_collision_1" pos="-0.014900 0.007763 0.013873" quat="0.0006213544984894526 0.18483697745921446 0.9827689885468274 -0.0001443363263772589" type="box" size="0.0018455 0.0134315 0.021301" rgba="0 0 0 0" />
+              <geom name="link3RespondableLeg_6_collision_2" pos="-0.002956 0.031592 0.012838" quat="0.0017512369648321024 0.2753839221871531 0.9613297044880383 -0.0024140917243325" type="box" size="0.0018285 0.013642 0.0182195" rgba="0 0 0 0" />
+              <geom name="link3RespondableLeg_6_collision_3" pos="0.013302 0.052467 0.010652" quat="-0.23982052944952625 0.24450135991768462 0.6634902021822143 -0.6651961742682803" type="box" size="0.0021355 0.0146725 0.0157005" rgba="0 0 0 0" />
+              <geom name="link3RespondableLeg_6_collision_4" pos="0.033434 0.071218 0.010652" quat="0.3190342077434006 0.3128446982079884 0.6353811875375509 0.6297905331267413" type="box" size="0.0018205 0.0113655 0.0136785" rgba="0 0 0 0" />
+              <geom name="link3RespondableLeg_6_collision_5" pos="0.056084 0.084772 0.010652" quat="-0.3560335252458266 0.3639834572167047 0.6062311491964789 -0.6109336834039528" type="box" size="0.0021255 0.007802 0.0144425" rgba="0 0 0 0" />
+              <geom name="link3RespondableLeg_6_collision_6" pos="0.092836 0.094397 0.007775" quat="-1.2247452309842457e-07 -0.7071068967259713 -1.22474483074382e-07 0.7071066656470838" type="sphere" size="0.0032986958976835" rgba="0 0 0 0" />
+              <geom name="link3RespondableLeg_6_collision_7" pos="0.036252 0.061369 0.007575" quat="-0.26929512460004174 0.6538189961085797 0.2692949353105706 0.6538203835995731" type="box" size="0.0015 0.0071485 0.022807" rgba="0 0 0 0" />
+              <geom name="link3RespondableLeg_6_collision_8" pos="0.063260 0.081489 0.007575" quat="0.2067631293808028 -0.6762023874098534 -0.20676185848960765 -0.676201799364506" type="box" size="0.0015 0.004407 0.016932" rgba="0 0 0 0" />
+              <geom name="link3RespondableLeg_6_collision_9" pos="0.084686 0.092249 0.007575" quat="0.1719611578515054 0.6858775576794214 0.1719615652179113 -0.6858794035031871" type="box" size="0.0015 0.0030255 0.0100345" rgba="0 0 0 0" />
+              <geom name="link3RespondableLeg_6_collision_10" pos="0.087416 0.096397 0.007775" quat="0.4312729201533052 0.42757367042508926 0.5520223487556888 0.5713630642384148" type="box" size="0.0018275 0.0022725 0.00667" rgba="0 0 0 0" />
+              <geom name="link3RespondableLeg_6_collision_11" pos="0.074295 0.092834 0.008475" quat="0.4312732058347834 0.42757394643621016 0.5520221349687845 0.5713628486018832" type="box" size="0.0018275 0.004545 0.00667" rgba="0 0 0 0" />
+              <geom name="link3RespondableLeg_6_visual_0" pos="0.035561 0.048074 0.008700" quat="-1.0839006681599948e-06 0.3826824330052909 0.923879946458291 4.4896498340247627e-07" material="link3Leg_6_material" type="mesh" mesh="ant_link3Leg_6_vis_1.stl" />
+              <geom name="link3RespondableLeg_6_visual_1" pos="0.029809 0.054686 0.013954" quat="-0.0007613326932547561 0.9329839810556213 0.3599170532464035 0.00016201407252065223" material="linkTexturedPart3Leg_6_material" type="mesh" mesh="ant_linkTexturedPart3Leg_6_vis_1.stl" />
+            </body>
+          </body>
+        </body>
+        <body name="neckRespondable" pos="-0.127370 -0.000000 0.057041" quat="0.7071068967259818 0.0 0.7071066656470943 0.0">
+          <inertial pos="-0.011522 0.000000 -0.006673" quat="0.7070872199400621 -6.776121711477152e-12 -2.449490060790809e-07 -0.7071263418918675" mass="0.10000000149012" diaginertia="0.00066790926530463 0.00048649959175211 0.00040727248025437" />
+          <geom name="neckRespondable_collision_0" pos="-0.004988 0.000001 0.000575" quat="7.09393575195616e-05 0.7071056715320667 7.589390369627802e-05 -0.7071078832080068" type="box" size="0.0015 0.009002 0.0139885" rgba="0 0 0 0" />
+          <geom name="neckRespondable_collision_1" pos="-0.017475 -0.000000 -0.013278" quat="-1.7320510330969933e-07 0.0 0.999999999999985 0.0" type="box" size="0.0015 0.009 0.0153525" rgba="0 0 0 0" />
+          <geom name="neckRespondable_visual_0" pos="-0.006562 -0.000000 -0.013278" quat="-0.4999998366024448 0.5000003267948699 0.4999996732050766 0.5000001633973415" material="neck_material" type="mesh" mesh="ant_neck_vis_1.stl" />
+          <geom name="neckRespondable_visual_1" pos="-0.006562 -0.000000 -0.013278" quat="-0.4999998366024448 0.5000003267948699 0.4999996732050766 0.5000001633973415" material="neck_material" type="mesh" mesh="ant_neck_vis_2.stl" />
+          <body name="headRespondable" pos="-0.010550 0.000000 -0.019630" quat="0.7071068967259818 0.0 -0.7071066656470943 0.0">
+            <inertial pos="-0.009000 0.007105 -0.018575" quat="0.5000001633974483 -0.4999999999999733 -0.4999999999999733 -0.49999983660255165" mass="0.10000000149012" diaginertia="0.00024419648237371 0.00023388919303711 0.00024266107566042" />
+            <geom name="headRespondable_collision_0" pos="0.000000 0.008250 -0.018575" quat="-0.7070854521143413 0.7071281096045677 2.121419597794084e-06 -3.290520911888637e-06" type="box" size="0.009 0.017251 0.017251" rgba="0 0 0 0" />
+            <geom name="headRespondable_collision_1" pos="-0.018000 0.005961 -0.018575" quat="-0.7070854521172782 0.7071281096063357 1.4142914882467473e-06 -2.583435459830938e-06" type="box" size="0.009 0.017251 0.017251" rgba="0 0 0 0" />
+            <geom name="headRespondable_visual_0" pos="-0.009000 0.005980 -0.017450" quat="0.7071066656470945 -0.7071068967259395 -2.4494900617280295e-07 -4.002404256650263e-14" material="head_material" type="mesh" mesh="ant_head_vis_1.stl" />
+            <body name="jawRespondable" pos="-0.018000 0.000000 -0.010325" quat="-0.707106665647052 -0.7071068967259819 -4.002404256650263e-14 -2.4494900617280295e-07">
+              <inertial pos="0.000000 -0.037635 0.000000" quat="-1.2247452309842457e-07 0.7071066656470838 0.7071068967259713 1.22474483074382e-07" mass="0.10000000149012" diaginertia="0.0007152039580257 0.0006942038418085 2.220012285818e-05" />
+              <geom name="jawRespondable_collision_0" pos="0.000000 -0.037635 0.000000" quat="-1.2247452309842457e-07 0.7071066656470838 0.7071068967259713 1.22474483074382e-07" type="box" size="0.0015 0.009 0.051" rgba="0 0 0 0" />
+              <geom name="jawRespondable_visual_0" pos="0.000000 -0.016642 0.000000" quat="0.7071025313831428 0.7071110306081018 1.414203085532816e-05 -1.7432805512883854e-05" material="jaw_material" type="mesh" mesh="ant_jaw_vis_1.stl" />
+              <geom name="jawRespondable_visual_1" pos="0.000000 -0.016642 0.000000" quat="0.7071025313831428 0.7071110306081018 1.414203085532816e-05 -1.7432805512883854e-05" material="jaw_material" type="mesh" mesh="ant_jaw_vis_2.stl" />
+              <body name="rightJawRespondable" pos="-0.000000 -0.040710 -0.042000" quat="0.7071066656470945 -0.7071068967259395 -2.4494900617280295e-07 -4.002404256650263e-14">
+                <joint name="rightJawJoint" type="hinge" range="-1.570796 0.060" axis="0 0 1" />
+                <inertial pos="-0.020023 0.003440 0.024547" quat="0.43437693941620026 0.4401234798945779 0.5522663183071715 0.5591152927727372" mass="0.10000000149012" diaginertia="0.00043580198353821 0.00041886769060178 0.00010584011440367" />
+                <geom name="rightJawRespondable_collision_0" pos="-0.008250 -0.000000 0.028575" quat="0.7071066653797197 -1.9445439697586495e-05 -1.9690382308972064e-05 -0.7071068964518284" type="box" size="0.009001 0.01725 0.0172505" rgba="0 0 0 0" />
+                <geom name="rightJawRespondable_collision_1" pos="-0.106627 -0.028502 0.023123" quat="0.6742661200989428 -0.6727075829386827 0.21893754116073097 -0.2118869043003999" type="box" size="0.00142 0.002983 0.0060225" rgba="0 0 0 0" />
+                <geom name="rightJawRespondable_collision_2" pos="-0.099533 -0.019542 0.022608" quat="0.24673732356104355 0.2538305130738494 0.6587524968784719 0.6638794405997057" type="box" size="0.0014365 0.004544 0.005933" rgba="0 0 0 0" />
+                <geom name="rightJawRespondable_collision_3" pos="-0.087156 -0.007871 0.021546" quat="-0.6388395940410512 -0.6376005028154127 0.3069670043199046 0.30186227017277517" type="box" size="0.0019065 0.0079045 0.01145" rgba="0 0 0 0" />
+                <geom name="rightJawRespondable_collision_4" pos="-0.068396 0.004209 0.020480" quat="0.5207742343061549 0.0051294812126425815 -0.0018590610996446343 0.8536770051940926" type="box" size="0.0018755 0.01127 0.011365" rgba="0 0 0 0" />
+                <geom name="rightJawRespondable_collision_5" pos="-0.047712 0.011864 0.019383" quat="0.6188501942941117 0.0060246504367812495 -0.002189969521425982 0.785482873551518" type="box" size="0.0018615 0.0112235 0.014867" rgba="0 0 0 0" />
+                <geom name="rightJawRespondable_collision_6" pos="-0.023419 0.015354 0.018308" quat="0.7290685155323542 -0.005150325698552075 -0.002684380969840352 -0.6844160780573882" type="box" size="0.0020845 0.013642 0.018238" rgba="0 0 0 0" />
+                <geom name="rightJawRespondable_collision_7" pos="0.003164 0.014431 0.017278" quat="0.7594088620989677 0.0010474516524354581 -0.0010576468844847137 0.6506119921993865" type="box" size="0.002029 0.0134265 0.021303" rgba="0 0 0 0" />
+                <geom name="rightJawRespondable_collision_8" pos="-0.042241 -0.012060 0.023575" quat="-0.3694334511427605 -0.3694902418257355 0.6029470329911185 0.602868776583691" type="box" size="0.002 0.0015 0.0050055" rgba="0 0 0 0" />
+                <geom name="rightJawRespondable_collision_9" pos="-0.052240 -0.008811 0.023575" quat="-0.45918261559514006 -0.4592763198261366 0.5377266270550184 0.5376491998861332" type="box" size="0.002 0.0015 0.0050055" rgba="0 0 0 0" />
+                <geom name="rightJawRespondable_collision_10" pos="-0.062753 -0.008811 0.023575" quat="-0.5377327299965599 -0.537642795855485 0.45919046969917143 0.4592688185503111" type="box" size="0.002 0.0015 0.0050055" rgba="0 0 0 0" />
+                <geom name="rightJawRespondable_collision_11" pos="-0.072752 -0.012060 0.023575" quat="-0.6029495344714373 -0.602862338376535 0.36944304617199986 0.3694870707927502" type="box" size="0.002 0.0015 0.0050055" rgba="0 0 0 0" />
+                <geom name="rightJawRespondable_collision_12" pos="-0.081257 -0.018239 0.023575" quat="-0.6532585005495416 -0.653305683779196 0.2705999758669941 0.270593178151897" type="box" size="0.002 0.0015 0.0050055" rgba="0 0 0 0" />
+                <geom name="rightJawRespondable_collision_13" pos="-0.092912 -0.021360 0.023575" quat="0.4315614900140788 0.43151765066673364 0.5601367516603045 0.560173202625164" type="box" size="0.002 0.0015 0.003053" rgba="0 0 0 0" />
+                <geom name="rightJawRespondable_collision_14" pos="-0.086194 -0.020866 0.023575" quat="-0.471406620698961 -0.4714207025985844 0.5270599439901287 0.527016256451132" type="box" size="0.002 0.0015 0.003053" rgba="0 0 0 0" />
+                <geom name="rightJawRespondable_collision_15" pos="-0.098999 -0.024245 0.023575" quat="0.32139587949063764 0.32133608151941045 0.62979979843739 0.6299206499618926" type="box" size="0.002 0.0015 0.003053" rgba="0 0 0 0" />
+                <geom name="rightJawRespondable_collision_16" pos="-0.103635 -0.029132 0.023575" quat="0.20025125603931213 0.2002769855534018 0.6782144148089636 0.6780956946166636" type="box" size="0.0019995 0.0015 0.003053" rgba="0 0 0 0" />
+                <geom name="rightJawRespondable_collision_17" pos="-0.033736 -0.018240 0.023575" quat="0.270590080794624 -0.27060460585928636 0.6533045313520812 -0.6532590181376271" type="box" size="0.0019995 0.0015 0.0050055" rgba="0 0 0 0" />
+                <geom name="rightJawRespondable_visual_0" pos="-0.046777 -0.007878 0.022863" quat="0.07642727691167661 -0.6627459276704287 -0.7405142858246663 -0.08102653386214359" material="rightJaw_material" type="mesh" mesh="ant_rightJaw_vis_1.stl" />
+                <geom name="rightJawRespondable_visual_1" pos="-0.046777 -0.007878 0.022863" quat="0.07642727691167661 -0.6627459276704287 -0.7405142858246663 -0.08102653386214359" material="rightJaw_material" type="mesh" mesh="ant_rightJaw_vis_2.stl" />
+                <geom name="rightJawRespondable_visual_2" pos="-0.050489 0.000209 0.017193" quat="0.8187186094761136 -0.001791453265586592 -0.0026792156261106538 -0.5741859028192219" material="rightJawTexturedPart_material" type="mesh" mesh="ant_rightJawTexturedPart_vis_1.stl" />
+              </body>
+              <body name="leftJawRespondable" pos="-0.000000 -0.040710 0.042000" quat="0.7071066656470945 -0.7071068967259395 -2.4494900617280295e-07 -4.002404256650263e-14">
+                <joint name="leftJawJoint" type="hinge" range="-1.570796 0.060" axis="0 0 -1" />
+                <inertial pos="-0.020064 -0.003443 0.024534" quat="0.19776077734342745 -0.6544568717095006 0.2619994808921804 -0.6811263833011942" mass="0.10000000149012" diaginertia="0.00044354617625882 0.00041839681082924 0.00010010610437088" />
+                <geom name="leftJawRespondable_collision_0" pos="-0.008250 -0.000000 0.028575" quat="0.7071066653797197 -1.9445439697586495e-05 -1.9690382308972064e-05 -0.7071068964518284" type="box" size="0.009001 0.01725 0.0172505" rgba="0 0 0 0" />
+                <geom name="leftJawRespondable_collision_1" pos="-0.033736 0.018240 0.023575" quat="0.2706047530609971 0.2705899335838277 0.6532589465446106 0.6533046029405594" type="box" size="0.0019995 0.0015 0.0050055" rgba="0 0 0 0" />
+                <geom name="leftJawRespondable_collision_2" pos="-0.042241 0.012060 0.023575" quat="-0.36949051465196464 0.36943317827673133 0.6028688001431309 -0.6029470094333007" type="box" size="0.002 0.0015 0.0050055" rgba="0 0 0 0" />
+                <geom name="leftJawRespondable_collision_3" pos="-0.052240 0.008811 0.023575" quat="-0.4592763167835733 0.45918261863755255 0.5376490362114044 -0.5377267907067891" type="box" size="0.002 0.0015 0.0050055" rgba="0 0 0 0" />
+                <geom name="leftJawRespondable_collision_4" pos="-0.062753 0.008811 0.023575" quat="-0.5376425495882486 0.5377329762225296 0.4592688860350811 -0.45919040220283786" type="box" size="0.002 0.0015 0.0050055" rgba="0 0 0 0" />
+                <geom name="leftJawRespondable_collision_5" pos="-0.072752 0.012060 0.023575" quat="-0.6028622693321398 0.6029496035072742 0.3694874003638618 -0.3694427165589797" type="box" size="0.002 0.0015 0.0050055" rgba="0 0 0 0" />
+                <geom name="leftJawRespondable_collision_6" pos="-0.081257 0.018240 0.023575" quat="-0.6533056200680694 0.6532582936601208 0.27059335757136344 -0.27060044972246294" type="box" size="0.002 0.0015 0.0050055" rgba="0 0 0 0" />
+                <geom name="leftJawRespondable_collision_7" pos="-0.092912 0.021360 0.023575" quat="0.4315175956726975 -0.4315615450017271 0.5601734519531633 -0.5601365023165813" type="box" size="0.002 0.0015 0.003053" rgba="0 0 0 0" />
+                <geom name="leftJawRespondable_collision_8" pos="-0.086194 0.020867 0.023575" quat="-0.4714209668166629 0.47140635647178053 0.5270163284714017 -0.527059871976768" type="box" size="0.002 0.0015 0.003053" rgba="0 0 0 0" />
+                <geom name="leftJawRespondable_collision_9" pos="-0.098999 0.024245 0.023575" quat="0.32133607323815444 -0.3213958877707032 0.6299209051309108 -0.6297995432191256" type="box" size="0.002 0.0015 0.003053" rgba="0 0 0 0" />
+                <geom name="leftJawRespondable_collision_10" pos="-0.103635 0.029133 0.023575" quat="0.20027712438688464 -0.2002511171838702 0.6780956079082716 -0.6782145015033547" type="box" size="0.0019995 0.0015 0.003053" rgba="0 0 0 0" />
+                <geom name="leftJawRespondable_collision_11" pos="-0.106637 0.028517 0.023166" quat="0.2111000396463572 -0.219697525006335 0.6750873345665218 -0.6718830712819505" type="box" size="0.00142 0.002983 0.0060195" rgba="0 0 0 0" />
+                <geom name="leftJawRespondable_collision_12" pos="-0.099531 0.019548 0.022612" quat="-0.6588057348607345 0.6635978162001773 0.24685421307381256 -0.25431464672069565" type="box" size="0.0014375 0.004544 0.0059315" rgba="0 0 0 0" />
+                <geom name="leftJawRespondable_collision_13" pos="-0.087177 0.007864 0.021569" quat="-0.30739944899585203 -0.2990523472330058 0.6407787094375383 0.6367699097028998" type="box" size="0.0017735 0.007877 0.011454" rgba="0 0 0 0" />
+                <geom name="leftJawRespondable_collision_14" pos="-0.068365 -0.004152 0.020464" quat="0.8564324990490455 0.0011566370128742237 -0.000678453748861919 0.5162572773956196" type="box" size="0.002058 0.0112785 0.011382" rgba="0 0 0 0" />
+                <geom name="leftJawRespondable_collision_15" pos="-0.047658 -0.011751 0.019380" quat="0.6100160857888594 -0.0060002016372429955 -0.002351869868145535 -0.7923628217977385" type="box" size="0.001985 0.0112205 0.0148675" rgba="0 0 0 0" />
+                <geom name="leftJawRespondable_collision_16" pos="-0.023422 -0.015365 0.018315" quat="0.6848665753322963 -0.005212140789628699 -0.0023103227860791727 -0.7286461898545996" type="box" size="0.001915 0.013642 0.018228" rgba="0 0 0 0" />
+                <geom name="leftJawRespondable_collision_17" pos="0.003157 -0.014395 0.017279" quat="0.6501803379817894 0.0009680746577641688 -0.0006792720357205322 0.7597790004487124" type="box" size="0.002109 0.013426 0.0213035" rgba="0 0 0 0" />
+                <geom name="leftJawRespondable_visual_0" pos="-0.046794 0.006678 0.027248" quat="0.15677520337249734 -0.733420191083565 -0.6429664930486385 -0.15527539320573042" material="leftJaw_material" type="mesh" mesh="ant_leftJaw_vis_1.stl" />
+                <geom name="leftJawRespondable_visual_1" pos="-0.046794 0.006678 0.027248" quat="0.15677520337249734 -0.733420191083565 -0.6429664930486385 -0.15527539320573042" material="leftJaw_material" type="mesh" mesh="ant_leftJaw_vis_2.stl" />
+                <geom name="leftJawRespondable_visual_2" pos="-0.050465 -0.000184 0.017330" quat="0.5747078359885531 -0.002639986439049071 -0.0020344437014748504 -0.8183518771065302" material="leftJawTexturedPart_material" type="mesh" mesh="ant_leftJawTexturedPart_vis_1.stl" />
+              </body>
+            </body>
+          </body>
+        </body>
+      </body>
+    </body>
+  </worldbody>
+
+  <actuator>
+    <position name="joint1Leg_ctrl" joint="joint1Leg" forcerange="-5.00000000 5.00000000" forcelimited="true" ctrlrange="-1.570796 1.570796" ctrllimited="true" />
+    <position name="joint2Leg_ctrl" joint="joint2Leg" forcerange="-5.00000000 5.00000000" forcelimited="true" ctrlrange="-1.570796 1.570796" ctrllimited="true" />
+    <position name="joint3Leg_ctrl" joint="joint3Leg" forcerange="-5.00000000 5.00000000" forcelimited="true" ctrlrange="-1.570796 1.570796" ctrllimited="true" />
+    <position name="joint1Leg_2_ctrl" joint="joint1Leg_2" forcerange="-5.00000000 5.00000000" forcelimited="true" ctrlrange="-1.570796 1.570796" ctrllimited="true" />
+    <position name="joint2Leg_2_ctrl" joint="joint2Leg_2" forcerange="-5.00000000 5.00000000" forcelimited="true" ctrlrange="-1.570796 1.570796" ctrllimited="true" />
+    <position name="joint3Leg_2_ctrl" joint="joint3Leg_2" forcerange="-5.00000000 5.00000000" forcelimited="true" ctrlrange="-1.570796 1.570796" ctrllimited="true" />
+    <position name="joint1Leg_3_ctrl" joint="joint1Leg_3" forcerange="-5.00000000 5.00000000" forcelimited="true" ctrlrange="-1.570796 1.570796" ctrllimited="true" />
+    <position name="joint2Leg_3_ctrl" joint="joint2Leg_3" forcerange="-5.00000000 5.00000000" forcelimited="true" ctrlrange="-1.570796 1.570796" ctrllimited="true" />
+    <position name="joint3Leg_3_ctrl" joint="joint3Leg_3" forcerange="-5.00000000 5.00000000" forcelimited="true" ctrlrange="-1.570796 1.570796" ctrllimited="true" />
+    <position name="joint1Leg_4_ctrl" joint="joint1Leg_4" forcerange="-5.00000000 5.00000000" forcelimited="true" ctrlrange="-1.570796 1.570796" ctrllimited="true" />
+    <position name="joint2Leg_4_ctrl" joint="joint2Leg_4" forcerange="-5.00000000 5.00000000" forcelimited="true" ctrlrange="-1.570796 1.570796" ctrllimited="true" />
+    <position name="joint3Leg_4_ctrl" joint="joint3Leg_4" forcerange="-5.00000000 5.00000000" forcelimited="true" ctrlrange="-1.570796 1.570796" ctrllimited="true" />
+    <position name="joint1Leg_5_ctrl" joint="joint1Leg_5" forcerange="-5.00000000 5.00000000" forcelimited="true" ctrlrange="-1.570796 1.570796" ctrllimited="true" />
+    <position name="joint2Leg_5_ctrl" joint="joint2Leg_5" forcerange="-5.00000000 5.00000000" forcelimited="true" ctrlrange="-1.570796 1.570796" ctrllimited="true" />
+    <position name="joint3Leg_5_ctrl" joint="joint3Leg_5" forcerange="-5.00000000 5.00000000" forcelimited="true" ctrlrange="-1.570796 1.570796" ctrllimited="true" />
+    <position name="joint1Leg_6_ctrl" joint="joint1Leg_6" forcerange="-5.00000000 5.00000000" forcelimited="true" ctrlrange="-1.570796 1.570796" ctrllimited="true" />
+    <position name="joint2Leg_6_ctrl" joint="joint2Leg_6" forcerange="-5.00000000 5.00000000" forcelimited="true" ctrlrange="-1.570796 1.570796" ctrllimited="true" />
+    <position name="joint3Leg_6_ctrl" joint="joint3Leg_6" forcerange="-5.00000000 5.00000000" forcelimited="true" ctrlrange="-1.570796 1.570796" ctrllimited="true" />
+    <position name="rightJawJoint_ctrl" joint="rightJawJoint" forcerange="-20.00000000 20.00000000" forcelimited="true" ctrlrange="-1.570796 0.06" ctrllimited="true" />
+    <position name="leftJawJoint_ctrl" joint="leftJawJoint" forcerange="-20.00000000 20.00000000" forcelimited="true" ctrlrange="-1.570796 0.06" ctrllimited="true" />
+  </actuator>
+
+  <sensor>
+    <framepos name="base_link_pos" objtype="site" objname="root_site" />
+    <framequat name="base_link_quat" objtype="site" objname="root_site" />
+    <framelinvel name="base_link_vel" objtype="site" objname="root_site" />
+    <frameangvel name="base_link_ang_vel" objtype="site" objname="root_site" />
+  </sensor>
+</mujoco>

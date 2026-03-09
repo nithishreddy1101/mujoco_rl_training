@@ -9,7 +9,7 @@
     </default>
   </default>
   <option timestep="0.001" iterations="50" tolerance="1e-10" />
-  <compiler angle="radian" meshdir="meshes" eulerseq="zyx" autolimits="true" />
+  <compiler angle="radian" meshdir="meshes/line_follower_robot" eulerseq="zyx" autolimits="true" />
 
   <asset>
     <texture name="texplane" type="2d" builtin="checker" rgb1=".0 .0 .0" rgb2=".8 .8 .8" width="100" height="100" />
@@ -40,6 +40,11 @@
       <freejoint name="root" />
       <site name="root_site" pos="0 0 0" quat="1 0 0 0" />
       <body name="robot_base" pos="0 0 0" quat="1 0 0 0">
+
+        <site name="sensor_mid" pos="0.085 0 0.001" size="0.002" rgba="1 0 0 1" />
+        <site name="sensor_left" pos="0.085 0.015 0.001" size="0.002" rgba="1 0 0 1" />
+        <site name="sensor_right" pos="0.085 -0.015 0.001" size="0.002" rgba="1 0 0 1" />
+
         <inertial pos="-0.024510 0.000000 0.022673" quat="0.7071068967259818 0.0 -0.7071066656470943 0.0" mass="0.20369647443295" diaginertia="0.00061051019147821 0.00040889239698183 0.00022408834383268" />
         <geom name="robot_base_collision_0" pos="-0.012391 -0.000000 0.015385" quat="0.999999999999955 -1.7320513330970195e-07 -1.7320507330968633e-07 -1.7320513330970195e-07" type="box" size="0.0825 0.0518615 0.0017" rgba="0 0 0 0" />
         <geom name="robot_base_collision_1" pos="-0.004961 -0.000000 0.023948" quat="0.999999999999955 -1.7320513330970195e-07 -1.7320507330968633e-07 -1.7320513330970195e-07" type="box" size="0.02895 0.0311 0.00775" rgba="0 0 0 0" />
@@ -85,6 +90,7 @@
         </body>
       </body>
     </body>
+    <geom name="line_straight" type="box" pos="0.5 0 0.0001" size="0.5 0.01 0.0001" rgba="0 0 0 1" conaffinity="0" contype="0" />
   </worldbody>
 
   <actuator>
