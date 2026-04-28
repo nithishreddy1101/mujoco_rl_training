@@ -1,0 +1,206 @@
+<?xml version="1.0"?>
+<robot name="robot" xmlns:xacro="http://ros.org/wiki/xacro">
+
+  <!-- =============== Properties =============== -->
+  <xacro:property name="PI" value="3.14159274"/>
+
+  <!-- =============== Macros =============== -->
+  
+  <!-- Base Macro -->
+  <xacro:macro name="base" params="parent *joint_origin">
+    <joint name="base_link_joint" type="fixed">
+      <xacro:insert_block name="joint_origin"/>
+      <parent link="${parent}"/>
+      <child link="base_link"/>
+    </joint>
+
+    <link name="base_link">
+      <visual>
+        <geometry>
+          <mesh filename="package://robot_description/meshes/DAE/base/base.dae"/>
+        </geometry>
+      </visual>
+      <collision>
+        <geometry>
+          <mesh filename="package://robot_description/meshes/STL/base/base.stl"/>
+        </geometry>
+      </collision>
+      <inertial>
+        <origin xyz="0 0 0"/>
+        <mass value="0.7"/> 
+        <inertia ixx="0.003" ixy="0" ixz="0" iyy="0.003" iyz="0" izz="0.006" />
+      </inertial>
+      <surface>
+        <friction>
+          <ode>
+            <mu>0.8</mu>
+            <mu2>0.8</mu2>
+            <kp>1e15</kp>
+            <kd>1e13</kd>
+          </ode>
+        </friction>
+        <bounce>
+          <restitution_coefficient>0.01</restitution_coefficient>
+          <threshold>10</threshold>
+        </bounce>
+        <contact>
+          <ode>
+            <max_vel>0.01</max_vel>
+            <minDepth>0</minDepth>
+            <contact_surface_layer>0</contact_surface_layer>
+          </ode>
+        </contact>
+      </surface>
+    </link>
+  </xacro:macro>
+
+  <!-- Wheel Macro -->
+  <xacro:macro name="wheel" params="prefix parent *joint_origin *joint_axis">
+    <joint name="${prefix}_wheel_joint" type="continuous">
+      <xacro:insert_block name="joint_origin"/>
+      <parent link="${parent}"/>
+      <child link="${prefix}_wheel_link"/>
+      <limit effort="100" velocity="100"/>
+      <xacro:insert_block name="joint_axis"/>
+    </joint>
+
+    <link name="${prefix}_wheel_link">
+      <visual>
+        <geometry>
+          <mesh filename="package://robot_description/meshes/DAE/wheel/wheel.dae"/>
+        </geometry>
+      </visual>
+      <collision>
+        <geometry>
+          <mesh filename="package://robot_description/meshes/STL/wheel/wheel.stl"/>
+        </geometry>
+      </collision>
+      <inertial>
+        <origin xyz="0.0 -0.001 0.0"/>
+        <mass value="0.036"/>
+        <inertia ixx="0.000014072" ixy="0" ixz="0" iyy="0.000026303" iyz="0" izz="0.000014072"/>
+      </inertial>
+      <surface>
+        <friction>
+          <ode>
+            <mu1>1.2</mu1>
+            <mu2>1.2</mu2>
+            <kp>1e15</kp>
+            <kd>1e13</kd>
+          </ode>
+        </friction>
+        <bounce>
+          <restitution_coefficient>0.01</restitution_coefficient>
+          <threshold>0</threshold>
+        </bounce>
+        <contact>
+          <ode>
+            <max_vel>10</max_vel>
+          </ode>
+        </contact>
+      </surface>
+    </link>
+  </xacro:macro>
+
+  <!-- =============== Robot Structure =============== -->
+  
+  <!-- Base -->
+  <link name="base_footprint"/>
+  
+  <xacro:base parent="base_footprint">
+    <origin xyz="0 0 0" rpy="0 0 0" />
+  </xacro:base>
+
+  <!-- Left Wheel -->
+  <xacro:wheel prefix="left" parent="base_link">
+    <origin xyz="-0.01875 0.065 -0.019" rpy="0 0 0"/>
+    <axis xyz="0 1 0"/>
+  </xacro:wheel>
+
+  <!-- Right Wheel -->
+  <xacro:wheel prefix="right" parent="base_link">
+    <origin xyz="-0.01875 -0.065 -0.019" rpy="0 0 ${PI}"/>
+    <axis xyz="0 -1 0"/>
+  </xacro:wheel>
+
+  <!-- =============== Caster Front =============== -->
+  
+  <!-- Front Yaw Link -->
+  <link name="front_yaw_link">
+    <inertial>
+      <mass value="0.001"/>
+      <origin rpy="0 1.5707 1.5707" xyz="0 0 0"/>
+      <inertia ixx="5.14583e-09" ixy="0" ixz="0" iyy="5.14583e-09" iyz="0" izz="1.0125e-08"/>
+    </inertial>
+    <collision name="link_right_wheel_collision">
+      <origin rpy="0 1.5707 1.5707" xyz="0 0 0"/>
+      <geometry>
+        <cylinder length="0.001" radius="0.0045"/>
+      </geometry>
+    </collision>
+  </link>
+  
+  <joint name="front_yaw_joint" type="continuous">
+    <origin rpy="0 0 0" xyz="0.093283 0 -0.047"/>
+    <parent link="base_link"/>
+    <child link="front_yaw_link"/>
+    <axis xyz="0 0 1"/>
+    <limit effort="1000.0" velocity="100.0"/>
+    <dynamics damping="0.0" friction="0.1"/>
+  </joint>
+
+  <!-- Front Roll Link -->
+  <link name="front_roll_link">
+    <inertial>
+      <mass value="0.001"/>
+      <origin rpy="0 1.5707 1.5707" xyz="0 0 0"/>
+      <inertia ixx="5.14583e-09" ixy="0" ixz="0" iyy="5.14583e-09" iyz="0" izz="1.0125e-08"/>
+    </inertial>
+    <collision name="link_right_wheel_collision">
+      <origin rpy="0 1.5707 1.5707" xyz="0 0 0"/>
+      <geometry>
+        <cylinder length="0.001" radius="0.0045"/>
+      </geometry>
+    </collision>
+  </link>
+  
+  <joint name="front_roll_joint" type="continuous">
+    <origin rpy="0 0 0" xyz="0 0 0"/>
+    <parent link="front_yaw_link"/>
+    <child link="front_roll_link"/>
+    <axis xyz="1 0 0"/>
+    <limit effort="1000.0" velocity="100.0"/>
+    <dynamics damping="0.0" friction="0.1"/>
+  </joint>
+
+  <!-- Front Pitch Link -->
+  <link name="front_pitch_link">
+    <inertial>
+      <mass value="0.001"/>
+      <origin rpy="0 1.5707 1.5707" xyz="0 0 0"/>
+      <inertia ixx="4e-08" ixy="0" ixz="0" iyy="4e-08" iyz="0" izz="4e-08"/>
+    </inertial>
+    <collision name="front_collision">
+      <origin rpy="0 1.5707 1.5707" xyz="0 0 0"/>
+      <geometry>
+        <sphere radius="0.005"/>
+      </geometry>
+    </collision>
+    <visual name="front_visual">
+      <origin rpy="0 1.5707 1.5707" xyz="0 0 0"/>
+      <geometry>
+        <sphere radius="0.005"/>
+      </geometry>
+    </visual>
+  </link>
+  
+  <joint name="front_pitch_joint" type="continuous">
+    <origin rpy="0 0 0" xyz="0 0 0"/>
+    <parent link="front_roll_link"/>
+    <child link="front_pitch_link"/>
+    <axis xyz="0 1 0"/>
+    <limit effort="1000.0" velocity="100.0"/>
+    <dynamics damping="0.0" friction="0.1"/>
+  </joint>
+
+</robot>
