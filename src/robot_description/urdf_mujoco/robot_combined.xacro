@@ -4,124 +4,155 @@
   <!-- =============== Properties =============== -->
   <xacro:property name="PI" value="3.14159274"/>
 
-  <!-- =============== Macros =============== -->
-  
-  <!-- Base Macro -->
-  <xacro:macro name="base" params="parent *joint_origin">
-    <joint name="base_link_joint" type="fixed">
-      <xacro:insert_block name="joint_origin"/>
-      <parent link="${parent}"/>
-      <child link="base_link"/>
-    </joint>
-
-    <link name="base_link">
-      <visual>
-        <geometry>
-          <mesh filename="package://robot_description/meshes/DAE/base/base.dae"/>
-        </geometry>
-      </visual>
-      <collision>
-        <geometry>
-          <mesh filename="package://robot_description/meshes/STL/base/base.stl"/>
-        </geometry>
-      </collision>
-      <inertial>
-        <origin xyz="0 0 0"/>
-        <mass value="0.7"/> 
-        <inertia ixx="0.003" ixy="0" ixz="0" iyy="0.003" iyz="0" izz="0.006" />
-      </inertial>
-      <surface>
-        <friction>
-          <ode>
-            <mu>0.8</mu>
-            <mu2>0.8</mu2>
-            <kp>1e15</kp>
-            <kd>1e13</kd>
-          </ode>
-        </friction>
-        <bounce>
-          <restitution_coefficient>0.01</restitution_coefficient>
-          <threshold>10</threshold>
-        </bounce>
-        <contact>
-          <ode>
-            <max_vel>0.01</max_vel>
-            <minDepth>0</minDepth>
-            <contact_surface_layer>0</contact_surface_layer>
-          </ode>
-        </contact>
-      </surface>
-    </link>
-  </xacro:macro>
-
-  <!-- Wheel Macro -->
-  <xacro:macro name="wheel" params="prefix parent *joint_origin *joint_axis">
-    <joint name="${prefix}_wheel_joint" type="continuous">
-      <xacro:insert_block name="joint_origin"/>
-      <parent link="${parent}"/>
-      <child link="${prefix}_wheel_link"/>
-      <limit effort="100" velocity="100"/>
-      <xacro:insert_block name="joint_axis"/>
-    </joint>
-
-    <link name="${prefix}_wheel_link">
-      <visual>
-        <geometry>
-          <mesh filename="package://robot_description/meshes/DAE/wheel/wheel.dae"/>
-        </geometry>
-      </visual>
-      <collision>
-        <geometry>
-          <mesh filename="package://robot_description/meshes/STL/wheel/wheel.stl"/>
-        </geometry>
-      </collision>
-      <inertial>
-        <origin xyz="0.0 -0.001 0.0"/>
-        <mass value="0.036"/>
-        <inertia ixx="0.000014072" ixy="0" ixz="0" iyy="0.000026303" iyz="0" izz="0.000014072"/>
-      </inertial>
-      <surface>
-        <friction>
-          <ode>
-            <mu1>1.2</mu1>
-            <mu2>1.2</mu2>
-            <kp>1e15</kp>
-            <kd>1e13</kd>
-          </ode>
-        </friction>
-        <bounce>
-          <restitution_coefficient>0.01</restitution_coefficient>
-          <threshold>0</threshold>
-        </bounce>
-        <contact>
-          <ode>
-            <max_vel>10</max_vel>
-          </ode>
-        </contact>
-      </surface>
-    </link>
-  </xacro:macro>
-
   <!-- =============== Robot Structure =============== -->
   
-  <!-- Base -->
+  <!-- Base Footprint -->
   <link name="base_footprint"/>
   
-  <xacro:base parent="base_footprint">
-    <origin xyz="0 0 0" rpy="0 0 0" />
-  </xacro:base>
+  <!-- Base Link Joint -->
+  <joint name="base_link_joint" type="fixed">
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <parent link="base_footprint"/>
+    <child link="base_link"/>
+  </joint>
 
-  <!-- Left Wheel -->
-  <xacro:wheel prefix="left" parent="base_link">
+  <!-- Base Link -->
+  <link name="base_link">
+    <visual>
+      <geometry>
+        <mesh filename="package://robot_description/meshes/DAE/base/base.dae"/>
+      </geometry>
+    </visual>
+    <collision>
+      <geometry>
+        <mesh filename="package://robot_description/meshes/STL/base/base.stl"/>
+      </geometry>
+    </collision>
+    <inertial>
+      <origin xyz="0 0 0"/>
+      <mass value="0.7"/> 
+      <inertia ixx="0.003" ixy="0" ixz="0" iyy="0.003" iyz="0" izz="0.006" />
+    </inertial>
+    <surface>
+      <friction>
+        <ode>
+          <mu>0.8</mu>
+          <mu2>0.8</mu2>
+          <kp>1e15</kp>
+          <kd>1e13</kd>
+        </ode>
+      </friction>
+      <bounce>
+        <restitution_coefficient>0.01</restitution_coefficient>
+        <threshold>10</threshold>
+      </bounce>
+      <contact>
+        <ode>
+          <max_vel>0.01</max_vel>
+          <minDepth>0</minDepth>
+          <contact_surface_layer>0</contact_surface_layer>
+        </ode>
+      </contact>
+    </surface>
+  </link>
+
+  <!-- =============== Left Wheel =============== -->
+  
+  <!-- Left Wheel Joint -->
+  <joint name="left_wheel_joint" type="continuous">
     <origin xyz="-0.01875 0.065 -0.019" rpy="0 0 0"/>
+    <parent link="base_link"/>
+    <child link="left_wheel_link"/>
+    <limit effort="100" velocity="100"/>
     <axis xyz="0 1 0"/>
-  </xacro:wheel>
+  </joint>
 
-  <!-- Right Wheel -->
-  <xacro:wheel prefix="right" parent="base_link">
+  <!-- Left Wheel Link -->
+  <link name="left_wheel_link">
+    <visual>
+      <geometry>
+        <mesh filename="package://robot_description/meshes/DAE/wheel/wheel.dae"/>
+      </geometry>
+    </visual>
+    <collision>
+      <geometry>
+        <mesh filename="package://robot_description/meshes/STL/wheel/wheel.stl"/>
+      </geometry>
+    </collision>
+    <inertial>
+      <origin xyz="0.0 -0.001 0.0"/>
+      <mass value="0.036"/>
+      <inertia ixx="0.000014072" ixy="0" ixz="0" iyy="0.000026303" iyz="0" izz="0.000014072"/>
+    </inertial>
+    <surface>
+      <friction>
+        <ode>
+          <mu1>1.2</mu1>
+          <mu2>1.2</mu2>
+          <kp>1e15</kp>
+          <kd>1e13</kd>
+        </ode>
+      </friction>
+      <bounce>
+        <restitution_coefficient>0.01</restitution_coefficient>
+        <threshold>0</threshold>
+      </bounce>
+      <contact>
+        <ode>
+          <max_vel>10</max_vel>
+        </ode>
+      </contact>
+    </surface>
+  </link>
+
+  <!-- =============== Right Wheel =============== -->
+  
+  <!-- Right Wheel Joint -->
+  <joint name="right_wheel_joint" type="continuous">
     <origin xyz="-0.01875 -0.065 -0.019" rpy="0 0 ${PI}"/>
+    <parent link="base_link"/>
+    <child link="right_wheel_link"/>
+    <limit effort="100" velocity="100"/>
     <axis xyz="0 -1 0"/>
-  </xacro:wheel>
+  </joint>
+
+  <!-- Right Wheel Link -->
+  <link name="right_wheel_link">
+    <visual>
+      <geometry>
+        <mesh filename="package://robot_description/meshes/DAE/wheel/wheel.dae"/>
+      </geometry>
+    </visual>
+    <collision>
+      <geometry>
+        <mesh filename="package://robot_description/meshes/STL/wheel/wheel.stl"/>
+      </geometry>
+    </collision>
+    <inertial>
+      <origin xyz="0.0 -0.001 0.0"/>
+      <mass value="0.036"/>
+      <inertia ixx="0.000014072" ixy="0" ixz="0" iyy="0.000026303" iyz="0" izz="0.000014072"/>
+    </inertial>
+    <surface>
+      <friction>
+        <ode>
+          <mu1>1.2</mu1>
+          <mu2>1.2</mu2>
+          <kp>1e15</kp>
+          <kd>1e13</kd>
+        </ode>
+      </friction>
+      <bounce>
+        <restitution_coefficient>0.01</restitution_coefficient>
+        <threshold>0</threshold>
+      </bounce>
+      <contact>
+        <ode>
+          <max_vel>10</max_vel>
+        </ode>
+      </contact>
+    </surface>
+  </link>
 
   <!-- =============== Caster Front =============== -->
   
