@@ -1,0 +1,33 @@
+<mujoco model="robot">
+
+    <body name="base_link_7" pos=" -1.5 1.5 0.052">
+        <freejoint name="root_7" />
+        <site name="root_site_7" pos="0 0 0" />
+        <inertial pos="0 0 0" mass="0.7" diaginertia="0.003 0.003 0.006" />
+        <geom name="base_link_stl_7" type="mesh" mesh="base.stl" rgba="1 1 1 1" />
+
+        <body name="left_wheel_link_7" pos="-0.01875 0.065 -0.019">
+            <joint name="left_wheel_joint_7" type="hinge" axis="0 1 0" />
+            <inertial pos="0.0 -0.001 0.0" mass="0.036"
+                diaginertia="1.4072e-05 2.6303e-05 1.4072e-05" />
+            <geom name="left_wheel_link_stl_7" type="mesh" mesh="wheel.stl" rgba="0 0 0 1" />
+        </body>
+
+        <body name="right_wheel_link_7" pos="-0.01875 -0.065 -0.019" quat="0.0 0.0 0.0 1.0">
+            <joint name="right_wheel_joint_7" type="hinge" axis="0 -1 0" />
+            <inertial pos="0.0 -0.001 0.0" mass="0.036"
+                diaginertia="1.4072e-05 2.6303e-05 1.4072e-05" />
+            <geom name="right_wheel_link_stl_7" type="mesh" mesh="wheel.stl"
+                rgba="0 0 0 1" />
+        </body>
+        <body name="caster_link_7" pos="0.093283 0 -0.047">
+            <inertial pos="0 0 0" mass="0.001" diaginertia="4e-08 4e-08 4e-08" />
+            <geom name="caster_geom_stl_7" type="sphere" size="0.005"
+                friction="0.01 0.005 0.005" material="default_material" />
+        </body>
+        <body name="camera_link_7" pos="0.134 0 0.0225" euler="-1.5707 0 0">
+            <camera name="line_camera_7" mode="fixed" pos="0 0 0" euler="0 0 0" fovy="60" />
+        </body>
+    </body>
+
+</mujoco>

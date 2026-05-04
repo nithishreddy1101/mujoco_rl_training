@@ -15,14 +15,25 @@
     <mesh name="base.dae" file="base.stl" />
     <mesh name="wheel.stl" file="wheel.stl" />
     <mesh name="wheel.dae" file="wheel.stl" />
+    <!-- Load the stage obj; explicitly defining the material to ensure texture loads -->
+    <mesh name="stage" file="../stage/stage.obj" />
+    <texture name="stage_tex" type="2d" file="../meshes/stage/stage.png" />
+    <material name="stage_mat" texture="stage_tex" specular="0.0" shininess="0.0" />
   </asset>
 
   <worldbody>
     <light directional="true" diffuse="0.4 0.4 0.4" specular="0.1 0.1 0.1" pos="0 0 5.0"
       dir="0 0 -1" castshadow="false" />
     <light directional="true" diffuse="0.6 0.6 0.6" specular="0.2 0.2 0.2" pos="0 0 4" dir="0 0 -1" />
-    <geom name="ground" type="plane" pos="0 0 0" size="10 10 0.001" material="matplane" condim="3"
-      conaffinity="15" />
+    <!-- <geom name="ground" type="plane" pos="0 0 0" size="10 10 0.001" material="matplane"
+    condim="3"
+      conaffinity="15" /> -->
+
+    <!-- The line following stage -->
+    <body name="stage_body" pos="0 0 0.001" euler="0 0 1.570796">
+      <geom name="stage_geom" type="mesh" mesh="stage" material="stage_mat" condim="3"
+        conaffinity="15" />
+    </body>
     <body name="base_link" pos="0 0 0.052">
       <freejoint name="root" />
       <site name="root_site" pos="0 0 0" />
