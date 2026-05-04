@@ -46,4 +46,51 @@
 
     </worldbody>
 
+    <actuator>
+        <velocity name="left_wheel_joint_ctrl_1" joint="left_wheel_joint_1" ctrlrange="-20 20"
+            ctrllimited="true" />
+        <velocity name="right_wheel_joint_ctrl_1" joint="right_wheel_joint_1" ctrlrange="-20 20"
+            ctrllimited="true" />
+
+        <velocity name="left_wheel_joint_ctrl_2" joint="left_wheel_joint_2" ctrlrange="-20 20"
+            ctrllimited="true" />
+        <velocity name="right_wheel_joint_ctrl_2" joint="right_wheel_joint_2" ctrlrange="-20 20"
+            ctrllimited="true" />
+
+        <velocity name="left_wheel_joint_ctrl_3" joint="left_wheel_joint_3" ctrlrange="-20 20"
+            ctrllimited="true" />
+        <velocity name="right_wheel_joint_ctrl_3" joint="right_wheel_joint_3" ctrlrange="-20 20"
+            ctrllimited="true" />
+
+        <velocity name="left_wheel_joint_ctrl_4" joint="left_wheel_joint_4" ctrlrange="-20 20"
+            ctrllimited="true" />
+        <velocity name="right_wheel_joint_ctrl_4" joint="right_wheel_joint_4" ctrlrange="-20 20"
+            ctrllimited="true" />
+
+        <velocity name="left_wheel_joint_ctrl_5" joint="left_wheel_joint_5" ctrlrange="-20 20"
+            ctrllimited="true" />
+        <velocity name="right_wheel_joint_ctrl_5" joint="right_wheel_joint_5" ctrlrange="-20 20"
+            ctrllimited="true" />
+
+        <velocity name="left_wheel_joint_ctrl_6" joint="left_wheel_joint_6" ctrlrange="-20 20"
+            ctrllimited="true" />
+        <velocity name="right_wheel_joint_ctrl_6" joint="right_wheel_joint_6" ctrlrange="-20 20"
+            ctrllimited="true" />
+
+        <velocity name="left_wheel_joint_ctrl_7" joint="left_wheel_joint_7" ctrlrange="-20 20"
+            ctrllimited="true" />
+        <velocity name="right_wheel_joint_ctrl_7" joint="right_wheel_joint_7" ctrlrange="-20 20"
+            ctrllimited="true" />
+
+        <velocity name="left_wheel_joint_ctrl_8" joint="left_wheel_joint_8" ctrlrange="-20 20"
+            ctrllimited="true" />
+        <velocity name="right_wheel_joint_ctrl_8" joint="right_wheel_joint_8" ctrlrange="-20 20"
+            ctrllimited="true" />
+
+        <velocity name="left_wheel_joint_ctrl_9" joint="left_wheel_joint_9" ctrlrange="-20 20"
+            ctrllimited="true" />
+        <velocity name="right_wheel_joint_ctrl_9" joint="right_wheel_joint_9" ctrlrange="-20 20"
+            ctrllimited="true" />
+    </actuator>
+
 </mujoco>

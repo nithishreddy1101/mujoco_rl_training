@@ -1,6 +1,6 @@
 <mujoco model="robot">
 
-    <body name="base_link_4" pos=" 1.5 -1.5 0.052">
+    <body name="base_link_4" pos=" 1.99 -1.5 0.052" euler=" -1.57078 0 0">
         <freejoint name="root_4" />
         <site name="root_site_4" pos="0 0 0" />
         <inertial pos="0 0 0" mass="0.7" diaginertia="0.003 0.003 0.006" />
